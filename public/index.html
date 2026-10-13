@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Readiness Check</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Twelve questions, about three minutes. A clear picture of how ready you are for a serious incident, and where to start. From SJ Group International.">
+<script>
+/* Embedded mode: when this page is shown inside another site (e.g. the Wix page at sjgroupinternational.com/readiness-check),
+   or opened with ?embed=1, hide our own brand bar, title, intro and footer, because the host page already has them. */
+(function(){
+  var framed=false;
+  try{framed=window.self!==window.top}catch(e){framed=true}
+  var q=/[?&]embed=(1|true|yes)\b/i.test(location.search);
+  if(framed||q)document.documentElement.classList.add("embedded");
+})();
+</script>
+<style>
+/* Layout: a single calm column, like a well-kept briefing document. Intro, one question per screen, then a results page grouped by Assess, Prepare, Respond */
+:root{
+  --paper:#f6f2ea; --card:#fffdf8; --navy:#142441; --navy-2:#22365e; --ink:#1c2840; --muted:#5d6577;
+  --bronze:#a8774a; --bronze-soft:#d9bd9a; --bronze-pale:#efe4d4; --line:#e3d9c9;
+  --f-display:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,"Times New Roman",serif;
+  --f-body:Verdana,Geneva,Tahoma,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;margin:0}
+.wrap{max-width:680px;margin:0 auto;padding-inline:16px;padding-block:28px 56px}
+:focus-visible{outline:3px solid var(--bronze);outline-offset:3px}
+.brandbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+  font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);padding-bottom:14px;border-bottom:1px solid var(--line)}
+.brandbar strong{color:var(--navy);font-weight:700}
+.apr{display:flex;gap:10px}
+.apr span{color:var(--bronze)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;color:var(--navy);text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
+.lede{font-size:1rem;color:var(--muted);max-width:52ch;margin:14px 0 0}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin:22px 0 0;padding:0;list-style:none;font-size:.82rem;color:var(--ink)}
+.facts li{display:flex;gap:8px;align-items:center}
+.facts svg{width:16px;height:16px;color:var(--bronze);flex:none}
+.who{margin-top:34px}
+.who h2{font-size:1.25rem}
+.choices{display:grid;gap:12px;margin-top:14px}
+@media (min-width:560px){.choices{grid-template-columns:1fr 1fr}}
+.choice{font:inherit;text-align:left;cursor:pointer;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;
+  padding:18px 18px 16px;display:grid;gap:6px;transition:border-color .2s, box-shadow .2s, transform .15s}
+.choice:hover{border-color:var(--bronze);box-shadow:0 6px 18px rgba(20,36,65,.08);transform:translateY(-1px)}
+.choice b{font-family:var(--f-display);font-weight:400;font-size:1.15rem;color:var(--navy)}
+.choice small{font-size:.8rem;color:var(--muted)}
+.privacy{margin-top:26px;font-size:.78rem;color:var(--muted);display:flex;gap:10px;align-items:flex-start;max-width:60ch}
+.privacy svg{width:16px;height:16px;flex:none;margin-top:2px;color:var(--navy)}
+
+/* progress */
+.progress{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:26px}
+.stage{display:grid;gap:6px}
+.stage .lab{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.stage.on .lab{color:var(--navy);font-weight:700}
+.ticks{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.ticks i{display:block;height:5px;border-radius:3px;background:var(--line);transition:background .3s}
+.ticks i.done{background:var(--bronze)}
+.ticks i.now{background:var(--navy)}
+.qhead{display:flex;justify-content:space-between;align-items:baseline;margin-top:30px;gap:12px}
+.qcount{font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.qstage{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze);font-weight:700}
+.qtext{font-size:clamp(1.3rem,4.6vw,1.7rem);line-height:1.3;margin-top:10px}
+.qtext:focus,#bandName:focus{outline:none}
+.answers{display:grid;gap:10px;margin-top:24px}
+.ans{font:inherit;text-align:left;cursor:pointer;display:flex;align-items:center;gap:14px;background:var(--card);color:var(--ink);
+  border:1px solid var(--line);border-radius:10px;padding:14px 16px;transition:border-color .15s, background .15s}
+.ans:hover{border-color:var(--bronze)}
+.ans .dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--bronze-soft);flex:none;display:grid;place-items:center}
+.ans .key{margin-left:auto;font-size:.7rem;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 6px}
+.ans[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.ans[aria-pressed="true"] .dot{border-color:var(--bronze-soft);background:radial-gradient(circle,var(--bronze-soft) 0 40%,transparent 45%)}
+.ans[aria-pressed="true"] .key{color:var(--bronze-soft);border-color:rgba(255,255,255,.3)}
+.qnav{display:flex;justify-content:space-between;margin-top:22px}
+.link-btn{font:inherit;font-size:.85rem;background:none;border:0;color:var(--navy);cursor:pointer;padding:6px 0;text-decoration:underline;text-underline-offset:3px}
+.link-btn:disabled{opacity:.35;cursor:default}
+.hint{font-size:.72rem;color:var(--muted);margin-top:16px}
+
+/* results */
+.res-top{display:grid;gap:22px;align-items:center;margin-top:30px;background:var(--navy);color:#fff;border-radius:14px;padding:26px 22px}
+@media (min-width:560px){.res-top{grid-template-columns:auto 1fr;padding:30px}}
+.ring{width:150px;height:150px;justify-self:center}
+.ring text{font-family:var(--f-display)}
+.res-top .eyebrow{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze-soft)}
+.res-top h2{color:#fff;font-size:clamp(1.6rem,5vw,2.1rem);margin-top:6px}
+.res-top p{margin:10px 0 0;font-size:.9rem;color:#dfe4ee;max-width:48ch}
+.bars{display:grid;gap:14px;margin-top:26px}
+.bar{display:grid;grid-template-columns:90px 1fr 44px;gap:12px;align-items:center}
+.bar .n{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);font-weight:700}
+.bar .track{height:10px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar .fill{display:block;height:100%;width:0;background:var(--bronze);border-radius:6px;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.bar .v{font-size:.8rem;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.bars-note{font-size:.75rem;color:var(--muted);margin:10px 0 0}
+.steps{margin-top:34px}
+.steps h3{font-size:1.35rem}
+.steps ol{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:12px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px 16px 58px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:15px;width:26px;height:26px;border-radius:50%;background:var(--bronze-pale);
+  color:var(--bronze);font-family:var(--f-display);display:grid;place-items:center;font-size:.95rem}
+.steps li b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.05rem;color:var(--navy)}
+.steps li span{display:block;font-size:.88rem;margin-top:4px;color:var(--ink)}
+.steps li em{display:block;font-style:normal;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze);margin-top:8px}
+.cta{margin-top:30px;border:1px solid var(--bronze-soft);background:var(--bronze-pale);border-radius:12px;padding:22px;display:grid;gap:12px}
+.cta h3{font-size:1.25rem}
+.cta p{margin:0;font-size:.88rem;max-width:56ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:4px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:.88rem;font-weight:700;text-decoration:none;cursor:pointer;
+  background:var(--navy);color:#fff;border:0;border-radius:999px;padding:11px 22px;transition:background .2s, transform .15s}
+.btn:hover{background:var(--navy-2);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--navy);border:1px solid var(--navy);font-weight:400}
+.btn.ghost:hover{background:rgba(20,36,65,.06)}
+.after{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.copy-box{width:100%;min-height:170px;margin-top:10px;font:inherit;font-size:.8rem;padding:10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.disclaimer{margin-top:30px;padding-top:14px;border-top:1px solid var(--line);font-size:.72rem;color:var(--muted)}
+.foot{margin-top:40px;font-size:.72rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.foot a{color:var(--navy)}
+.screen{animation:rise .35s ease both}
+@keyframes rise{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);background:var(--navy);color:#fff;
+  font-size:.82rem;padding:9px 18px;border-radius:999px;opacity:0;transition:.25s;pointer-events:none;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* embedded mode (see script in head) */
+.embedded .brandbar,.embedded #intro h1,.embedded #intro .lede,.embedded .foot{display:none}
+.embedded .wrap{padding-block:24px 40px}
+.embedded #intro .facts{margin-top:0}
+.embedded .progress,.embedded .res-top{margin-top:0}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brandbar"><strong>SJ Group International</strong><span class="apr">Assess <span>&middot;</span> Prepare <span>&middot;</span> Respond</span></div>
+
+  <main id="app" aria-live="polite">
+    <!-- intro -->
+    <section class="screen" id="intro">
+      <h1>The Readiness Check</h1>
+      <p class="lede">If something serious happened tonight, would you know who decides, who speaks and who to call? Twelve questions to give you a clear picture, and a few practical places to start.</p>
+      <ul class="facts">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>About three minutes</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>12 questions</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Completely anonymous</li>
+      </ul>
+      <div class="who">
+        <h2>Who are you answering for?</h2>
+        <div class="choices">
+          <button type="button" class="choice" data-aud="org"><b>An organisation</b><small>A business, firm, family office or other organisation</small></button>
+          <button type="button" class="choice" data-aud="fam"><b>Myself and my family</b><small>You, your family, your homes and the people who help you</small></button>
+        </div>
+      </div>
+      <p class="privacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg>
+        Your answers stay on this device. Nothing is stored, tracked or sent to us, and no names or contact details are asked for.</p>
+    </section>
+
+    <!-- question -->
+    <section id="quiz" hidden>
+      <div class="progress" id="progress" aria-hidden="true"></div>
+      <div class="qhead"><span class="qstage" id="qStage"></span><span class="qcount" id="qCount"></span></div>
+      <h2 class="qtext" id="qText" tabindex="-1"></h2>
+      <div class="answers" id="answers" role="group" aria-labelledby="qText"></div>
+      <div class="qnav">
+        <button type="button" class="link-btn" id="backBtn">Back</button>
+        <button type="button" class="link-btn" id="nextBtn" hidden>Next</button>
+      </div>
+      <p class="hint">Tip: you can press 1 to 4 to answer.</p>
+    </section>
+
+    <!-- results -->
+    <section id="results" hidden>
+      <div class="res-top">
+        <svg class="ring" viewBox="0 0 150 150" role="img" id="ring">
+          <circle cx="75" cy="75" r="62" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="10"/>
+          <circle id="ringFill" cx="75" cy="75" r="62" fill="none" stroke="#d9bd9a" stroke-width="10" stroke-linecap="round"
+            stroke-dasharray="389.6" stroke-dashoffset="389.6" transform="rotate(-90 75 75)" style="transition:stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1)"/>
+          <text x="75" y="82" text-anchor="middle" font-size="40" fill="#ffffff" id="ringNum">0</text>
+          <text x="75" y="104" text-anchor="middle" font-size="11" fill="#d9bd9a" letter-spacing="2">OUT OF 100</text>
+        </svg>
+        <div>
+          <div class="eyebrow">Your readiness</div>
+          <h2 id="bandName" tabindex="-1"></h2>
+          <p id="bandText"></p>
+        </div>
+      </div>
+      <div class="bars" id="bars"></div>
+      <p class="bars-note">Assess is knowing your risks and having a plan. Prepare is people, roles and practice. Respond is what happens in the first hours.</p>
+
+      <div class="steps">
+        <h3 id="stepsTitle">Three places to start</h3>
+        <ol id="steps"></ol>
+      </div>
+
+      <div class="cta">
+        <h3>Talk it through, in confidence</h3>
+        <p id="ctaText">Every situation is different. A short, confidential conversation with our team can help you decide what matters most for you, with no obligation.</p>
+        <div class="cta-row">
+          <a class="btn" id="enquire" href="https://www.sjgroupinternational.com/contact" target="_blank" rel="noopener">Make a discreet enquiry</a>
+        </div>
+      </div>
+
+      <div class="after">
+        <button type="button" class="btn ghost" id="copyBtn">Copy my results</button>
+        <button type="button" class="btn ghost" id="restartBtn">Start again</button>
+      </div>
+      <textarea class="copy-box" id="copyBox" readonly hidden aria-label="Your results as text"></textarea>
+      <p class="disclaimer">The Readiness Check is a general guide to help you reflect, not a full assessment or professional advice. Your answers are not stored anywhere, so copy your results if you'd like to keep them.</p>
+    </section>
+  </main>
+
+  <div class="foot"><span>&copy; SJ Group International</span><a href="https://www.sjgroupinternational.com" target="_blank" rel="noopener">sjgroupinternational.com</a></div>
+</div>
+<div class="toast" id="toast" aria-hidden="true"></div>
+<div class="sr" id="live" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+var STAGES=["Assess","Prepare","Respond"];
+var ANSWERS=["Not yet","Partly","Mostly","Yes, and checked recently"];
+/* each question: stage, organisation wording, family wording, next-step title and action for each */
+var Q=[
+ {s:0,
+  org:"Have you identified the few events that would cause your organisation the most serious harm?",
+  fam:"Have you thought through the few situations that would most seriously affect you or your family, such as a threat, an incident abroad or a privacy breach?",
+  t:"Name your biggest risks",
+  ao:"Spend twenty minutes listing the three events that would hurt most, and who would be affected by each.",
+  af:"Spend twenty minutes listing the three situations that would affect you or your family most, and who would need to be involved."},
+ {s:0,
+  org:"Do you know what information about your senior people and operations can be found online?",
+  fam:"Do you know what information about you, your family and your homes can be found online?",
+  t:"See what's out there",
+  ao:"Search for your senior people the way an outsider would, and note anything that reveals routines, locations or family details.",
+  af:"Search for yourself and your family the way a stranger would, and note anything that reveals routines, addresses or children's details."},
+ {s:0,
+  org:"Is there a current crisis plan the right people can reach quickly, even if your systems are down?",
+  fam:"If something serious happened, is there a simple written plan kept where the right people can reach it?",
+  t:"Make the plan reachable",
+  ao:"Find the current plan, check its date, and make sure at least two people can reach a copy offline.",
+  af:"Write a one-page plan covering who to call, who decides and where key documents are, and give a copy to one trusted person."},
+ {s:0,
+  org:"Does the plan have a named owner, and has it been reviewed in the last 12 months?",
+  fam:"Has that plan, and the people named in it, been reviewed in the last 12 months?",
+  t:"Give the plan an owner",
+  ao:"Name one person who owns the plan, and put its next review date in the diary.",
+  af:"Put a date in the diary to review the plan, and check the people named in it are still the right ones."},
+ {s:1,
+  org:"If your principal decision-maker were unreachable tonight, would someone else know they're authorised to act?",
+  fam:"If you were unreachable, would someone you trust know they're authorised to make decisions for you?",
+  t:"Agree who decides",
+  ao:"Name a deputy for your decision-maker and confirm in writing what they're authorised to decide.",
+  af:"Agree with someone you trust what they could decide on your behalf, and make sure they know where to find what they'd need."},
+ {s:1,
+  org:"Has your leadership team talked through a realistic scenario together in the last year?",
+  fam:"Have the people who'd help you, such as family, staff or advisers, talked through what they would do?",
+  t:"Talk through a scenario",
+  ao:"Book thirty minutes with your leadership team to talk through one realistic scenario. Gaps show up quickly.",
+  af:"Talk through one 'what if' with the people who'd help you, over a coffee rather than in the middle of a crisis."},
+ {s:1,
+  org:"When colleagues travel, could you confirm within an hour where they are and that they're safe?",
+  fam:"When family members travel, could you confirm within an hour where they are and that they're safe?",
+  t:"Know who's travelling",
+  ao:"Agree one simple way to see who is travelling, where they're staying and how to reach them.",
+  af:"Agree a simple habit for sharing travel plans and checking in when family members are away."},
+ {s:1,
+  org:"Is there a plan to support the people involved, during and after a serious incident?",
+  fam:"Would you know where to turn for practical and emotional support for anyone affected?",
+  t:"Plan for welfare",
+  ao:"Decide who would coordinate support for the people affected, and note what practical and emotional help you could offer.",
+  af:"Note who you'd turn to for practical and emotional support, so nobody is searching for help when it matters."},
+ {s:2,
+  org:"Would an urgent concern reach a decision-maker quickly at 2am or on a bank holiday?",
+  fam:"Would household staff or family know who to call, day or night, if something felt wrong?",
+  t:"Check the 2am route",
+  ao:"Walk through how an urgent issue would reach a decision-maker outside working hours, and fix any step that relies on luck.",
+  af:"Make sure household staff and family have one number to call, day or night, and know when to use it."},
+ {s:2,
+  org:"Is it agreed who speaks for the organisation, and who approves what's said, if the media take an interest?",
+  fam:"If the press or social media took an interest, would you know who speaks for you?",
+  t:"Agree who speaks",
+  ao:"Agree who speaks for the organisation and who signs off statements, with a stand-in for each.",
+  af:"Decide who would speak for you, and agree with family and staff that nobody comments publicly until they've checked with that person."},
+ {s:2,
+  org:"Are your insurer, legal and specialist response contacts to hand, with any notification requirements noted?",
+  fam:"Are the contacts for your insurer, lawyers and other advisers kept together and easy to reach in an emergency?",
+  t:"Keep key contacts together",
+  ao:"Put your insurer, broker, legal and specialist contacts in one place, with policy numbers and any notification deadlines.",
+  af:"Keep your insurer, lawyers and other advisers' contacts together, with policy numbers, somewhere you can reach quickly."},
+ {s:2,
+  org:"If several advisers became involved at once, is it clear who would coordinate them?",
+  fam:"If several advisers became involved at once, would someone coordinate them so you didn't have to?",
+  t:"Decide who coordinates",
+  ao:"Decide who would coordinate external advisers, so their advice doesn't overlap, conflict or arrive too late.",
+  af:"Think about who would coordinate your advisers, so you aren't managing several people at the hardest moment."}
+];
+var BANDS=[
+ {min:0,key:"early-stages",name:"Early stages",text:"Some important foundations aren't in place yet. That's more common than you might think, and it's also where a few small steps make the biggest difference."},
+ {min:40,key:"developing",name:"Developing",text:"You've made a real start and some areas are in good shape. There are gaps that would slow you down under pressure, and closing them would mean fewer decisions made in a hurry."},
+ {min:65,key:"prepared",name:"Prepared",text:"Much of what matters is in place. The gaps that remain are the kind that tend to show up only in a real incident, which is why practice and keeping things current matter now."},
+ {min:85,key:"ready",name:"Ready",text:"You're in a strong position. The work now is keeping it that way, because readiness fades quietly: plans drift, people move on and contacts change."}
+];
+var CONTACT="https://www.sjgroupinternational.com/contact?utm_source=readiness-check&utm_medium=referral&utm_campaign=readiness-check";
+
+var $=function(id){return document.getElementById(id)};
+var aud=null,idx=0,answers=[],advanceT=null;
+var reduced=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function show(id){
+  ["intro","quiz","results"].forEach(function(s){var el=$(s);el.hidden=(s!==id);});
+  var el=$(id);el.classList.remove("screen");void el.offsetWidth;el.classList.add("screen");
+  window.scrollTo({top:0,behavior:reduced?"auto":"smooth"});
+}
+function say(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(say.t);say.t=setTimeout(function(){t.classList.remove("show")},2200);$("live").textContent=m}
+
+/* intro */
+Array.prototype.forEach.call(document.querySelectorAll(".choice"),function(b){
+  b.addEventListener("click",function(){aud=b.dataset.aud;idx=0;answers=new Array(Q.length);show("quiz");renderQ(true)});
+});
+
+/* progress */
+var prog=$("progress");
+STAGES.forEach(function(name,si){
+  var d=document.createElement("div");d.className="stage";d.dataset.s=si;
+  d.innerHTML='<span class="lab">'+name+'</span><span class="ticks"><i></i><i></i><i></i><i></i></span>';
+  prog.appendChild(d);
+});
+function renderProgress(){
+  var ticks=prog.querySelectorAll("i");
+  Array.prototype.forEach.call(ticks,function(t,i){t.className=answers[i]!==undefined&&i!==idx?"done":(i===idx?"now":"")});
+  Array.prototype.forEach.call(prog.querySelectorAll(".stage"),function(s){s.classList.toggle("on",+s.dataset.s===Q[idx].s)});
+}
+
+/* question */
+function renderQ(focus){
+  clearTimeout(advanceT);
+  var q=Q[idx];
+  $("qStage").textContent=STAGES[q.s];
+  $("qCount").textContent="Question "+(idx+1)+" of "+Q.length;
+  $("qText").textContent=aud==="fam"?q.fam:q.org;
+  var box=$("answers");box.innerHTML="";
+  ANSWERS.forEach(function(a,v){
+    var b=document.createElement("button");b.type="button";b.className="ans";
+    b.setAttribute("aria-pressed",String(answers[idx]===v));
+    b.innerHTML='<span class="dot" aria-hidden="true"></span><span></span><span class="key" aria-hidden="true">'+(v+1)+'</span>';
+    b.children[1].textContent=a;
+    b.addEventListener("click",function(){choose(v)});
+    box.appendChild(b);
+  });
+  $("backBtn").textContent=idx===0?"Change who I'm answering for":"Back";
+  $("nextBtn").hidden=answers[idx]===undefined;
+  $("nextBtn").textContent=idx===Q.length-1?"See my results":"Next";
+  renderProgress();
+  if(focus)$("qText").focus({preventScroll:true});
+}
+function choose(v){
+  answers[idx]=v;
+  Array.prototype.forEach.call($("answers").children,function(b,i){b.setAttribute("aria-pressed",String(i===v))});
+  $("nextBtn").hidden=false;
+  clearTimeout(advanceT);
+  advanceT=setTimeout(next,reduced?150:380);
+}
+function next(){
+  if(answers[idx]===undefined)return;
+  if(idx<Q.length-1){idx++;renderQ(true)}else{showResults()}
+}
+$("nextBtn").addEventListener("click",next);
+$("backBtn").addEventListener("click",function(){
+  clearTimeout(advanceT);
+  if(idx===0){show("intro");return}
+  idx--;renderQ(true);
+});
+document.addEventListener("keydown",function(e){
+  if($("quiz").hidden||e.altKey||e.ctrlKey||e.metaKey)return;
+  var n=parseInt(e.key,10);
+  if(n>=1&&n<=4){e.preventDefault();choose(n-1)}
+});
+
+/* results */
+function bandFor(score){var b=BANDS[0];BANDS.forEach(function(x){if(score>=x.min)b=x});return b}
+function compute(){
+  var total=0,stage=[0,0,0];
+  answers.forEach(function(a,i){total+=a;stage[Q[i].s]+=a});
+  return {score:Math.round(total/(Q.length*3)*100),stages:stage.map(function(s){return Math.round(s/12*100)})};
+}
+function pickSteps(){
+  /* lowest answers first; ties keep question order */
+  var order=answers.map(function(a,i){return {a:a,i:i}}).filter(function(x){return x.a<3});
+  order.sort(function(x,y){return x.a-y.a||x.i-y.i});
+  return order.slice(0,3).map(function(x){return x.i});
+}
+var last=null;
+function showResults(){
+  var r=compute(),band=bandFor(r.score),steps=pickSteps();
+  last={r:r,band:band,steps:steps};
+  show("results");
+  $("bandName").textContent=band.name;$("bandText").textContent=band.text;
+  $("ring").setAttribute("aria-label","Your score is "+r.score+" out of 100: "+band.name);
+  var bars=$("bars");bars.innerHTML="";
+  STAGES.forEach(function(name,si){
+    var row=document.createElement("div");row.className="bar";
+    row.innerHTML='<span class="n">'+name+'</span><span class="track"><span class="fill"></span></span><span class="v">'+r.stages[si]+'%</span>';
+    row.setAttribute("aria-label",name+": "+r.stages[si]+" percent");
+    bars.appendChild(row);
+  });
+  var ol=$("steps");ol.innerHTML="";
+  if(steps.length===0){
+    $("stepsTitle").textContent="Keeping it that way";
+    var li=document.createElement("li");
+    li.innerHTML="<b></b><span></span>";
+    li.querySelector("b").textContent="Keep it current";
+    li.querySelector("span").textContent="Set a date each year to review the plan, refresh contacts and run one scenario with the people who'd be involved.";
+    ol.appendChild(li);
+  }else{
+    $("stepsTitle").textContent=steps.length===1?"One place to start":(steps.length===2?"Two places to start":"Three places to start");
+    steps.forEach(function(i){
+      var q=Q[i],li=document.createElement("li");
+      li.innerHTML="<b></b><span></span><em></em>";
+      li.querySelector("b").textContent=q.t;
+      li.querySelector("span").textContent=aud==="fam"?q.af:q.ao;
+      li.querySelector("em").textContent=STAGES[q.s]+" · you answered “"+ANSWERS[answers[i]]+"”";
+      ol.appendChild(li);
+    });
+  }
+  $("enquire").href=CONTACT+"&utm_content="+band.key+"-"+(aud==="fam"?"private":"organisation");
+  $("copyBox").hidden=true;
+  /* animate score */
+  var fill=$("ringFill"),C=389.6;
+  requestAnimationFrame(function(){requestAnimationFrame(function(){
+    fill.setAttribute("stroke-dashoffset",String(C*(1-r.score/100)));
+    Array.prototype.forEach.call(bars.querySelectorAll(".fill"),function(f,si){f.style.width=r.stages[si]+"%"});
+  })});
+  if(reduced){$("ringNum").textContent=r.score}
+  else{var t0=null;(function tick(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/1100);$("ringNum").textContent=Math.round(r.score*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)})(performance.now());}
+  $("bandName").focus({preventScroll:true});
+}
+function summary(){
+  var r=last.r,lines=["The Readiness Check, SJ Group International","","Score: "+r.score+" out of 100 ("+last.band.name+")",
+    "Assess "+r.stages[0]+"%, Prepare "+r.stages[1]+"%, Respond "+r.stages[2]+"%",""];
+  if(last.steps.length){lines.push("Places to start:");last.steps.forEach(function(i,k){lines.push((k+1)+". "+Q[i].t+": "+(aud==="fam"?Q[i].af:Q[i].ao))})}
+  lines.push("","sjgroupinternational.com");
+  return lines.join("\n");
+}
+$("copyBtn").addEventListener("click",function(){
+  var text=summary(),box=$("copyBox");
+  function fallback(){box.value=text;box.hidden=false;box.focus();box.select();say("Select the text below and copy it.")}
+  try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){say("Results copied. Paste them anywhere to keep them.")},fallback)}else fallback()}catch(e){fallback()}
+});
+$("restartBtn").addEventListener("click",function(){aud=null;idx=0;answers=[];last=null;$("ringFill").setAttribute("stroke-dashoffset","389.6");show("intro")});
+})();
+</script>
+
+</body>
+</html>
