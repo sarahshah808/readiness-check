@@ -128,6 +128,61 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 
+/* keep your results + optional briefs sign-up */
+.keep{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:10px}
+.keep h3{font-size:1.25rem}
+.keep>p{margin:0;font-size:.88rem;color:var(--muted)}
+.optin,.thanks{margin-top:14px;padding-top:18px;border-top:1px solid var(--line);display:grid;gap:12px}
+.optin h4,.thanks h4{font-family:var(--f-display);font-weight:400;font-size:1.1rem;color:var(--navy);margin:0}
+.optin p,.thanks p{margin:0;font-size:.85rem}
+.fields{display:grid;gap:12px}
+@media (min-width:560px){.fields{grid-template-columns:1fr 1.4fr}}
+.optin label{display:grid;gap:5px;font-size:.8rem;color:var(--navy);font-weight:700}
+.optin label span{font-weight:400;color:var(--muted)}
+.optin input[type=text],.optin input[type=email]{font:inherit;font-size:.92rem;font-weight:400;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);width:100%}
+.optin input:focus{border-color:var(--bronze)}
+.optin .tick{display:flex;gap:10px;align-items:flex-start;font-weight:400;color:var(--ink);font-size:.82rem;cursor:pointer}
+.optin .tick input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--navy);flex:none}
+.optin .btn{justify-self:start}
+.optin .btn[disabled]{opacity:.6;cursor:default;transform:none}
+.optin .fine{font-size:.72rem;color:var(--muted)}
+.optin .fine a,.thanks a{color:var(--navy)}
+.formmsg{font-size:.8rem;color:#9b2c2c;min-height:1em}
+.formmsg:empty{display:none}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+
+/* Save as PDF: print just the results, cleanly */
+@media print{
+  @page{size:A4;margin:16mm}
+  html,body{background:#fff}
+  .brandbar,.foot,#intro,#quiz,.optin,.thanks,.keep .cta-row,.keep>p,.keep>h3,.after,.copy-box,.toast{display:none!important}
+  .embedded .brandbar{display:flex!important}
+  .brandbar{display:flex!important}
+  .wrap{max-width:none;padding:0}
+  .keep{display:none!important}
+  .res-top,.bar .fill,.steps li::before{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .steps li{break-inside:avoid}
+  .screen{animation:none}
+  .cta{break-inside:avoid;background:none}
+  .cta .cta-row::after{content:"sjgroupinternational.com/contact  |  +44 (0)20 8050 2939";font-size:.85rem;color:var(--navy)}
+  .cta .btn{display:none}
+  body{font-size:12.5px}
+  .res-top{margin-top:14px;padding:18px 22px}
+  .ring{width:120px;height:120px}
+  .bars{margin-top:16px;gap:8px}
+  .steps{margin-top:18px}
+  .steps ol{gap:8px}
+  .steps li{padding:10px 14px 10px 50px}
+  .steps li::before{top:10px}
+  .cta{margin-top:16px;padding:14px 18px;gap:6px}
+  .disclaimer{margin-top:12px}
+  .bars-note{display:none}
+  .cta p{max-width:none}
+  .cta h3{font-size:1.1rem}
+  .steps li span{font-size:.85rem}
+  @page{margin:14mm}
+}
+
 /* embedded mode (see script in head) */
 .embedded .brandbar,.embedded #intro h1,.embedded #intro .lede,.embedded .foot{display:none}
 .embedded .wrap{padding-block:24px 40px}
@@ -158,7 +213,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
         </div>
       </div>
       <p class="privacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg>
-        Your answers stay on this device. Nothing is stored, tracked or sent to us, and no names or contact details are asked for.</p>
+        Your answers stay on this device. Nothing is stored, tracked or sent to us, and you don't need to give your name or contact details to see your results.</p>
     </section>
 
     <!-- question -->
@@ -198,6 +253,32 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
         <ol id="steps"></ol>
       </div>
 
+      <div class="keep" id="keep">
+        <h3>Keep your results</h3>
+        <p>Save a copy for yourself, or to share with your family office, board or advisers.</p>
+        <div class="cta-row">
+          <button type="button" class="btn" id="pdfBtn">Save as PDF</button>
+          <button type="button" class="btn ghost" id="copyBtn">Copy as text</button>
+        </div>
+        <form class="optin" id="optin" novalidate>
+          <h4>Want the Readiness Briefs for your focus areas?</h4>
+          <p>Our one-page briefs on the areas above, sent to you personally by our team. Entirely optional.</p>
+          <div class="fields">
+            <label><b>First name <span>(optional)</span></b><input type="text" id="fName" autocomplete="given-name" maxlength="80"></label>
+            <label>Email<input type="email" id="fEmail" autocomplete="email" maxlength="254" required></label>
+          </div>
+          <label class="hp" aria-hidden="true">Leave this empty<input type="text" id="fWeb" tabindex="-1" autocomplete="off"></label>
+          <label class="tick"><input type="checkbox" id="fUpdates"> <span>Also send me occasional readiness insights from SJ Group International. You can unsubscribe at any time.</span></label>
+          <button type="submit" class="btn" id="fSend">Send me the briefs</button>
+          <p class="fine">If you send this, we receive your email, your score and your focus areas, not your individual answers. We use them only to send your briefs and, if you ticked the box, occasional insights. We never share them. See our <a href="https://www.sjgroupinternational.com/privacy-policy" target="_blank" rel="noopener">privacy policy</a>.</p>
+          <p class="formmsg" id="fMsg" role="status"></p>
+        </form>
+        <div class="thanks" id="thanks" hidden>
+          <h4>Thank you</h4>
+          <p>We'll send your briefs personally, usually within one working day. If anything is urgent, please call us on <a href="tel:+442080502939">+44 (0)20 8050 2939</a>.</p>
+        </div>
+      </div>
+
       <div class="cta">
         <h3>Talk it through, in confidence</h3>
         <p id="ctaText">Every situation is different. A short, confidential conversation with our team can help you decide what matters most for you, with no obligation.</p>
@@ -207,11 +288,10 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
       </div>
 
       <div class="after">
-        <button type="button" class="btn ghost" id="copyBtn">Copy my results</button>
         <button type="button" class="btn ghost" id="restartBtn">Start again</button>
       </div>
       <textarea class="copy-box" id="copyBox" readonly hidden aria-label="Your results as text"></textarea>
-      <p class="disclaimer">The Readiness Check is a general guide to help you reflect, not a full assessment or professional advice. Your answers are not stored anywhere, so copy your results if you'd like to keep them.</p>
+      <p class="disclaimer">The Readiness Check is a general guide to help you reflect, not a full assessment or professional advice. Your answers are not stored anywhere, so save a copy if you'd like to keep them.</p>
     </section>
   </main>
 
@@ -430,6 +510,8 @@ function showResults(){
   }
   $("enquire").href=CONTACT+"&utm_content="+band.key+"-"+(aud==="fam"?"private":"organisation");
   $("copyBox").hidden=true;
+  resetOptin();
+  $("optin").querySelector("h4").textContent=steps.length?"Want the Readiness Briefs for your focus areas?":"Want our Readiness Briefs?";
   /* animate score */
   var fill=$("ringFill"),C=389.6;
   requestAnimationFrame(function(){requestAnimationFrame(function(){
@@ -452,7 +534,49 @@ $("copyBtn").addEventListener("click",function(){
   function fallback(){box.value=text;box.hidden=false;box.focus();box.select();say("Select the text below and copy it.")}
   try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){say("Results copied. Paste them anywhere to keep them.")},fallback)}else fallback()}catch(e){fallback()}
 });
-$("restartBtn").addEventListener("click",function(){aud=null;idx=0;answers=[];last=null;$("ringFill").setAttribute("stroke-dashoffset","389.6");show("intro")});
+$("restartBtn").addEventListener("click",function(){aud=null;idx=0;answers=[];last=null;$("ringFill").setAttribute("stroke-dashoffset","389.6");resetOptin();show("intro")});
+
+/* Save as PDF: the browser's print dialog, with a print layout that shows only the results */
+$("pdfBtn").addEventListener("click",function(){
+  if(last&&!reduced){$("ringNum").textContent=last.r.score}
+  try{window.print()}catch(e){say("Use your browser's Print option and choose Save as PDF.")}
+});
+
+/* Optional briefs sign-up. Only sent if the visitor fills it in and presses the button.
+   Goes to the SJ Group Supabase project, table readiness_leads, which the public can add to but never read. */
+var LEADS_URL="https://dckjhvuiqvckteoomllh.supabase.co/rest/v1/readiness_leads";
+var LEADS_KEY="sb_publishable_uxk0Sk4nJeWHox9Muk4d9w_vZiWzKcd";
+var sentOnce=false;
+function resetOptin(){$("optin").hidden=false;$("thanks").hidden=true;$("fMsg").textContent="";$("fSend").disabled=false;$("fSend").textContent="Send me the briefs";sentOnce=false}
+$("optin").addEventListener("submit",function(e){
+  e.preventDefault();
+  if(sentOnce||!last)return;
+  var msg=$("fMsg"),btn=$("fSend");
+  var email=$("fEmail").value.trim(),name=$("fName").value.trim();
+  msg.textContent="";
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)||email.length>254){msg.textContent="Please check your email address.";$("fEmail").focus();return}
+  if($("fWeb").value){$("optin").hidden=true;$("thanks").hidden=false;return} /* bots fill the hidden field; quietly ignore them */
+  var body={
+    email:email,
+    first_name:name?name.slice(0,80):null,
+    audience:aud==="fam"?"private":"organisation",
+    score:last.r.score,
+    band:last.band.name,
+    focus_areas:last.steps.map(function(i){return Q[i].t}),
+    wants_updates:$("fUpdates").checked
+  };
+  btn.disabled=true;btn.textContent="Sending…";
+  fetch(LEADS_URL,{method:"POST",headers:{"apikey":LEADS_KEY,"Content-Type":"application/json","Prefer":"return=minimal"},body:JSON.stringify(body)})
+    .then(function(r){
+      if(!r.ok)throw new Error(r.status);
+      sentOnce=true;$("optin").hidden=true;$("thanks").hidden=false;$("thanks").querySelector("h4").focus&&$("thanks").setAttribute("tabindex","-1");$("thanks").focus({preventScroll:true});
+    })
+    .catch(function(){
+      btn.disabled=false;btn.textContent="Send me the briefs";
+      msg.innerHTML="";msg.appendChild(document.createTextNode("Sorry, that didn't go through. Please try again, or email "));
+      var a=document.createElement("a");a.href="mailto:office@sjgroupinternational.com?subject=Readiness%20Briefs";a.textContent="office@sjgroupinternational.com";msg.appendChild(a);
+    });
+});
 })();
 </script>
 

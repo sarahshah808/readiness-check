@@ -18,6 +18,16 @@ Commit and push, and Vercel redeploys automatically.
 
 Vercel project, framework "Other", no build command, output folder `public`.
 
+## Keeping results and the optional briefs sign-up
+
+After the score, visitors can save their results as a PDF (the browser's print dialog, with a print layout that shows only the results) or copy them as text. Nothing is sent for either.
+
+Below that is an optional form: "Want the Readiness Briefs for your focus areas?". Only if someone fills it in and presses send, the page posts their email, optional first name, who they answered for, score, band, focus area titles and whether they ticked "occasional insights" to the `readiness_leads` table in the SJ Group Supabase project. Individual answers are never sent.
+
+- The table can be added to through the public key but never read through it (row level security, insert only, limited columns).
+- A scheduled task copies new sign-ups each morning into the "Readiness Check sign-ups" database in Notion (Work Hub) and adds a to-do to send the briefs.
+- The "occasional insights" box is unticked by default. Only people who ticked it should get anything beyond their briefs.
+
 ## Privacy
 
-No accounts, cookies, analytics or personal data. Answers never leave the visitor's browser.
+No accounts, cookies or analytics. Answers never leave the visitor's browser. The only personal data collected is what someone chooses to send through the optional briefs form, described above.
