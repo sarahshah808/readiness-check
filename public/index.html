@@ -164,7 +164,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
   .steps li{break-inside:avoid}
   .screen{animation:none}
   .cta{break-inside:avoid;background:none}
-  .cta .cta-row::after{content:"sjgroupinternational.com/contact  |  +44 (0)20 8050 2939";font-size:.85rem;color:var(--navy)}
+  .cta .cta-row::after{content:"Book a call: sjgroupinternational.com/book-online  |  +44 (0)20 8050 2939";font-size:.85rem;color:var(--navy)}
   .cta .btn{display:none}
   body{font-size:12.5px}
   .res-top{margin-top:14px;padding:18px 22px}
@@ -283,7 +283,8 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
         <h3>Talk it through, in confidence</h3>
         <p id="ctaText">Every situation is different. A short, confidential conversation with our team can help you decide what matters most for you, with no obligation.</p>
         <div class="cta-row">
-          <a class="btn" id="enquire" href="https://www.sjgroupinternational.com/contact" target="_blank" rel="noopener">Make a discreet enquiry</a>
+          <a class="btn" id="book" href="https://www.sjgroupinternational.com/book-online" target="_blank" rel="noopener">Book a confidential conversation</a>
+          <a class="btn ghost" id="enquire" href="https://www.sjgroupinternational.com/contact" target="_blank" rel="noopener">Make a discreet enquiry</a>
         </div>
       </div>
 
@@ -387,6 +388,7 @@ var BANDS=[
  {min:85,key:"ready",name:"Ready",text:"You're in a strong position. The work now is keeping it that way, because readiness fades quietly: plans drift, people move on and contacts change."}
 ];
 var CONTACT="https://www.sjgroupinternational.com/contact?utm_source=readiness-check&utm_medium=referral&utm_campaign=readiness-check";
+var BOOK="https://www.sjgroupinternational.com/book-online?utm_source=readiness-check&utm_medium=referral&utm_campaign=readiness-check";
 
 var $=function(id){return document.getElementById(id)};
 var aud=null,idx=0,answers=[],advanceT=null;
@@ -509,6 +511,7 @@ function showResults(){
     });
   }
   $("enquire").href=CONTACT+"&utm_content="+band.key+"-"+(aud==="fam"?"private":"organisation");
+  $("book").href=BOOK+"&utm_content="+band.key+"-"+(aud==="fam"?"private":"organisation");
   $("copyBox").hidden=true;
   resetOptin();
   $("optin").querySelector("h4").textContent=steps.length?"Want the Readiness Briefs for your focus areas?":"Want our Readiness Briefs?";
