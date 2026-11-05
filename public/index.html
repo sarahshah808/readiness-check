@@ -398,6 +398,7 @@ function show(id){
   ["intro","quiz","results"].forEach(function(s){var el=$(s);el.hidden=(s!==id);});
   var el=$(id);el.classList.remove("screen");void el.offsetWidth;el.classList.add("screen");
   window.scrollTo({top:0,behavior:reduced?"auto":"smooth"});
+  try{if(window.self!==window.top)parent.postMessage({sjgRC:"top"},"*")}catch(e){}
 }
 function say(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(say.t);say.t=setTimeout(function(){t.classList.remove("show")},2200);$("live").textContent=m}
 
@@ -580,6 +581,19 @@ $("optin").addEventListener("submit",function(e){
       var a=document.createElement("a");a.href="mailto:office@sjgroupinternational.com?subject=Readiness%20Briefs";a.textContent="office@sjgroupinternational.com";msg.appendChild(a);
     });
 });
+})();
+</script>
+
+<script>
+/* Embedded mode: tell the host page (sjgroupinternational.com) how tall this page is, so the frame fits the content with no empty space or inner scrollbar */
+(function(){
+  var framed=false;try{framed=window.self!==window.top}catch(e){framed=true}
+  if(!framed)return;
+  var last=0;
+  function send(){var h=Math.ceil(document.body.getBoundingClientRect().height);if(Math.abs(h-last)<4)return;last=h;try{parent.postMessage({sjgRC:"height",h:h},"*")}catch(e){}}
+  if(window.ResizeObserver)new ResizeObserver(send).observe(document.body);
+  window.addEventListener("load",send);window.addEventListener("resize",function(){last=0;send()});
+  setInterval(send,1000);send();
 })();
 </script>
 
