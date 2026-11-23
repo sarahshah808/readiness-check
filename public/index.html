@@ -20,7 +20,7 @@
 /* Layout: a single calm column, like a well-kept briefing document. Intro, one question per screen, then a results page grouped by Assess, Prepare, Respond */
 :root{
   --paper:#f6f2ea; --card:#fffdf8; --navy:#0E2148; --navy-2:#22365e; --ink:#1c2840; --muted:#5d6577;
-  --bronze:#a8774a; --bronze-soft:#d9bd9a; --bronze-pale:#efe4d4; --line:#e3d9c9;
+  --bronze:#a8774a; --bronze-text:#85582e; --bronze-soft:#d9bd9a; --bronze-pale:#efe4d4; --line:#e3d9c9;
   --f-display:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,"Times New Roman",serif;
   --f-body:Verdana,Geneva,Tahoma,sans-serif;
   color-scheme:light;
@@ -65,7 +65,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 .ticks i.now{background:var(--navy)}
 .qhead{display:flex;justify-content:space-between;align-items:baseline;margin-top:30px;gap:12px}
 .qcount{font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums}
-.qstage{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze);font-weight:700}
+.qstage{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze-text);font-weight:700}
 .qtext{font-size:clamp(1.3rem,4.6vw,1.7rem);line-height:1.3;margin-top:10px}
 .qtext:focus,#bandName:focus{outline:none}
 .answers{display:grid;gap:10px;margin-top:24px}
@@ -81,6 +81,8 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 .link-btn{font:inherit;font-size:.85rem;background:none;border:0;color:var(--navy);cursor:pointer;padding:6px 0;text-decoration:underline;text-underline-offset:3px}
 .link-btn:disabled{opacity:.35;cursor:default}
 .hint{font-size:.72rem;color:var(--muted);margin-top:16px}
+@media (pointer:coarse){.hint{display:none}}
+.who-by a{color:var(--navy)}
 
 /* results */
 .res-top{display:grid;gap:22px;align-items:center;margin-top:30px;background:var(--navy);color:#fff;border-radius:14px;padding:26px 22px}
@@ -105,7 +107,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
   color:var(--bronze);font-family:var(--f-display);display:grid;place-items:center;font-size:.95rem}
 .steps li b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.05rem;color:var(--navy)}
 .steps li span{display:block;font-size:.88rem;margin-top:4px;color:var(--ink)}
-.steps li em{display:block;font-style:normal;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze);margin-top:8px}
+.steps li em{display:block;font-style:normal;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-text);margin-top:8px}
 .cta{margin-top:30px;border:1px solid var(--bronze-soft);background:var(--bronze-pale);border-radius:12px;padding:22px;display:grid;gap:12px}
 .cta h3{font-size:1.25rem}
 .cta p{margin:0;font-size:.88rem;max-width:56ch}
@@ -131,7 +133,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 /* exposure + scenarios (v2) */
 .expo{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:10px}
 .expo-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-.expo .eyebrow{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);font-weight:700}
+.expo .eyebrow{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze-text);font-weight:700}
 .expo-name{font-family:var(--f-display);font-size:1.4rem;color:var(--navy)}
 .expo-track{height:10px;border-radius:6px;background:var(--line);overflow:hidden}
 .expo-fill{display:block;height:100%;width:0;background:var(--navy);border-radius:6px;transition:width 1s cubic-bezier(.2,.8,.2,1)}
@@ -145,11 +147,11 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 .sc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
 .sc b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.1rem;color:var(--navy)}
 .sc .why{display:block;font-size:.8rem;color:var(--muted);margin-top:4px}
-.sc .fh{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze);margin-top:12px;font-weight:700}
+.sc .fh{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-text);margin-top:12px;font-weight:700}
 .sc ol{margin:6px 0 0;padding-left:20px;font-size:.88rem;display:grid;gap:4px}
 .know{display:grid;gap:12px;margin-top:30px}
 .kn{background:var(--bronze-pale);border:1px solid var(--bronze-soft);border-radius:10px;padding:16px 18px}
-.kn .fh{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze);font-weight:700}
+.kn .fh{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-text);font-weight:700}
 .kn b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.1rem;color:var(--navy);margin-top:4px}
 .kn .you{display:block;font-size:.82rem;color:var(--muted);margin-top:4px}
 .kn p{margin:8px 0 0;font-size:.88rem}
@@ -191,7 +193,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
   .steps li{break-inside:avoid}
   .screen{animation:none}
   .cta{break-inside:avoid;background:none}
-  .cta .cta-row::after{content:"Book a debrief: sjgroupinternational.com/book-online";font-size:.85rem;color:var(--navy)}
+  .cta .cta-row::after{content:"Book a debrief: sjgroupinternational.com/booking-calendar/readiness-check-debrief";font-size:.85rem;color:var(--navy)}
   .cta .btn{display:none}
   body{font-size:12.5px}
   .res-top{margin-top:14px;padding:18px 22px}
@@ -207,7 +209,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
   .cta p{max-width:none}
   .cta h3{font-size:1.1rem}
   .steps li span{font-size:.85rem}
-  @page{margin:14mm}
+  @page{margin:14mm 14mm 16mm;@bottom-left{content:"SJ Group International \00B7  The Readiness Check \00B7  Confidential";font-family:Verdana,sans-serif;font-size:7.5pt;color:#5d6577}@bottom-right{content:counter(page) " of " counter(pages);font-family:Verdana,sans-serif;font-size:7.5pt;color:#5d6577}}
 }
 
 
@@ -224,7 +226,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 @media print{
   .print-head{display:flex!important;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:2px solid var(--navy);padding-bottom:8px;margin-bottom:6px}
   .print-head b{font-family:var(--f-display);font-weight:400;font-size:1.3rem;color:var(--navy)}
-  .print-head span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze)}
+  .print-head span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-text)}
   .print-sub{display:block!important;font-size:.78rem;color:var(--muted);margin:0 0 4px}
   .print-foot{display:block!important;margin-top:14px;padding-top:8px;border-top:1px solid var(--line);font-size:.72rem;color:var(--muted)}
   .brandbar,.embedded .brandbar,.disclaimer{display:none!important}
@@ -244,7 +246,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 <div class="wrap">
   <div class="brandbar"><strong>SJ Group International</strong><span class="apr">Assess <span>&middot;</span> Prepare <span>&middot;</span> Respond</span></div>
 
-  <main id="app" aria-live="polite">
+  <main id="app">
     <!-- intro -->
     <section class="screen" id="intro">
       <h1>The Readiness Check</h1>
@@ -287,7 +289,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
         <button type="button" class="link-btn" id="advBack">Back</button>
       </div>
       <p class="privacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg>
-        Your answers stay on this device and you don't need to give your name or contact details to see your results. Nothing is sent to us unless you choose to leave your email at the end, and even then we only receive your email, your score and your focus areas, never your individual answers.</p>
+        Your answers stay on this device and you don't need to give your name or contact details to see your results. Nothing is sent to us unless you choose to leave your email at the end, and even then we only receive your name if you give it, your email, your scores, your focus areas and which version of the check you took, never your individual answers.</p>
     </section>
 
     <!-- question -->
@@ -367,7 +369,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
           <label class="hp" aria-hidden="true">Leave this empty<input type="text" id="fWeb" tabindex="-1" autocomplete="off"></label>
           <label class="tick"><input type="checkbox" id="fUpdates"> <span>Also send me occasional readiness insights from SJ Group International. You can unsubscribe at any time.</span></label>
           <button type="submit" class="btn" id="fSend">Send me the briefs</button>
-          <p class="fine">If you send this, we receive your email, your score and your focus areas, not your individual answers. We use them only to send your briefs and, if you ticked the box, occasional insights. We never share them. See our <a href="https://www.sjgroupinternational.com/privacy-policy" target="_blank" rel="noopener">privacy policy</a>.</p>
+          <p class="fine">If you send this, we receive your name if you give it, your email, your scores, your focus areas and which version of the check you took, never your individual answers. We use them only to send your briefs and, if you ticked the box, occasional insights. We never share them. See our <a href="https://www.sjgroupinternational.com/privacy-policy" target="_blank" rel="noopener">privacy policy</a>.</p>
           <p class="formmsg" id="fMsg" role="status"></p>
         </form>
         <div class="thanks" id="thanks" hidden>
@@ -378,7 +380,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 
       <div class="cta">
         <h3 id="ctaTitle">Talk your results through, in confidence</h3>
-        <p id="ctaText">Book a Readiness Check debrief: a private 20 minute conversation with Nick Shah OBE about your results and what to do first, with no obligation.</p>
+        <p id="ctaText">Book a Readiness Check debrief: a private 20-minute conversation with Nick Shah OBE about your results and what to do first, with no obligation.</p>
         <p class="who-by">Nick founded SJ Group International after a career that included the National Crime Agency. Our 24/7 line is <a href="tel:+442080502939">+44 (0)20 8050 2939</a>.</p>
         <div class="cta-row">
           <a class="btn" id="book" href="https://www.sjgroupinternational.com/booking-calendar/readiness-check-debrief" target="_blank" rel="noopener">Book a Readiness Check debrief</a>
@@ -426,7 +428,8 @@ var SIT=[
   fam:"Does anyone in the family hold significant cryptocurrency or other digital assets, or talk about doing so?",
   fo:"Do the principals, their family or the office hold significant cryptocurrency or other digital assets?",
   opts:["No","Not sure","Yes"],
-  why:"Digital assets, which criminals now target in person"},
+  why:"Digital assets, which criminals now target in person",
+  why1:"Possibly digital assets, which criminals now target in person"},
  {k:"people",
   org:"Do people outside your core team, such as contractors, agency staff or suppliers, have access to your sites, schedules or sensitive information?",
   fam:"Do household staff, drivers, nannies or contractors know your homes, routines or children's movements?",
@@ -444,7 +447,7 @@ var SIT=[
 ];
 /* thirteen readiness questions (three of them "what would you do?"). Each has its own four answers describing real situations, scored 0 to 3 in order, so nobody is handed the "right" answer.
    s: stage (0 Assess, 1 Prepare, 2 Respond). org/fam: question wording. opts, or optsOrg/optsFam: the four answers.
-   Two are "what would you do?" questions (quiz:true). Their answers are not in order: "scores" gives each answer's score, and "know" is the explanation shown in the results if someone didn't pick the best answer.
+   Three are "what would you do?" questions (quiz:true). Their answers are not in order: "scores" gives each answer's score ("scoresFam"/"scoresFo" when that audience's answers are in a different order), and "know" is the explanation shown in the results if someone didn't pick the best answer.
    t/ao/af: the next-step title and the organisation and family actions. */
 var Q=[
  {s:0,
@@ -481,6 +484,7 @@ var Q=[
   optsOrg:["There's no plan or owner yet","There's a plan, but no clear owner","There's a named owner, but it hasn't been checked this year","A named owner, and checked in the last 12 months"],
   optsFam:["There's no plan yet","More than two years ago","In the last two years","In the last 12 months"],
   t:"Give the plan an owner",
+  tFam:"Put a review date in the diary",
   ao:"Name one person who owns the plan, and put its next review date in the diary.",
   af:"Put a date in the diary to review the plan, and check the people named in it are still the right ones."},
  {s:1,
@@ -523,23 +527,25 @@ var Q=[
   org:"The office gets a call. The caller says they're holding one of your senior people abroad and wants a large payment within the hour. They say don't call the police. What's the first move?",
   fam:"Your phone rings. A caller says they're holding your son and wants £20,000 within the hour. They say don't call the police. What's your first move?",
   fo:"The office gets a call. The caller says they're holding one of the principal's children and wants a large payment within the hour. They say don't call the police. What's the first move?",
-  optsOrg:["Arrange the payment quickly, it's not worth the risk","Stay calm, agree to nothing, and get someone else to try to reach them another way","End the call and phone the police","Do exactly what the caller says until you know more"],
-  optsFam:["Pay quickly, it's not worth the risk","Stay calm, agree to nothing, and get someone else to try to reach him another way","Hang up and phone the police","Do exactly what the caller says until you know more"],
-  scores:[0,3,2,0],
-  know:"Many of these calls are fake, and they fall apart once someone reaches the person another way. Stay as calm as you can, agree to nothing, not an amount and not a deadline, and get someone else to try to reach them. This isn't advice to avoid the police: if you think it may be real, or you're not sure, call 999, then call specialist help.",
+  optsOrg:["Start arranging the payment while you find out more","Agree to pay, but ask for more time to raise the money","End the call and phone the police straight away","Stay on, agree to nothing, while someone calls 999 and tries to reach them"],
+  optsFam:["Do what they say for now, and keep it to yourself","Agree to pay, but ask for more time to get the money","Hang up straight away and phone the police yourself","Stay on, agree to nothing, while someone calls 999 and tries him"],
+  scores:[0,0,2,3],
+  know:"Many of these calls are fake, and they fall apart once someone reaches the person another way. If you can, stay on the line, stay calm and agree to nothing, not an amount and not a deadline, while someone else calls 999 and tries to reach them. Hanging up straight away loses the caller, and anything you might learn from them. Then call specialist help.",
+  knowOrg:"Many of these calls are fake, and they fall apart once someone reaches the person another way. If you can, stay on the line, stay calm and agree to nothing, not an amount and not a deadline, while someone else calls 999 (and the FCDO on +44 (0)20 7008 5000, if a British national is held abroad) and tries to reach them. Hanging up straight away loses the caller, and anything you might learn from them. Then call specialist help.",
   t:"Plan for the call",
   ao:"Agree what anyone taking a threatening call should do: stay calm, agree to nothing, try to reach the person another way, call 999 if in doubt, then call your specialist.",
   af:"Agree a family code word that's never written down or posted, and make sure everyone knows: agree to nothing, try to reach the person another way, call 999 if in doubt, then call your specialist."},
  {s:2, quiz:true,
-  org:"An email arrives: pay in crypto by tonight, or data stolen from you will be published. What's the first move?",
+  org:"An email arrives: pay in cryptocurrency by tonight, or data stolen from you will be published. What's the first move?",
   fam:"A message arrives: pay £5,000 by tonight, or private messages and photos will be sent to everyone you know. What do you do first?",
-  fo:"An email arrives at the office: pay in crypto by tonight, or private information about the family will be published. What's the first move?",
-  optsFo:["Pay quickly to protect the family","Delete it, it's probably a bluff","Reply to buy time and handle it in the office","Keep everything, don't reply yet, and bring in your incident lead, insurer and specialists"],
-  optsOrg:["Pay quickly to protect customers and staff","Delete it, it's probably a bluff","Reply to buy time and handle it yourselves","Keep everything, don't reply yet, and bring in your incident lead, insurer and specialists"],
-  optsFam:["Pay, so it goes away","Delete everything and block them straight away","Reply and try to reason with them","Keep the evidence, don't reply or pay, then report it and get advice"],
-  scores:[0,1,1,3],
-  know:"Don't pay and don't reply. Keep the evidence first: messages, usernames, numbers and payment details. Only block them once it's saved. If any images are of someone under 18, don't screenshot, save or forward them, leave them on the device and report it. Report to the police on 101, or 999 if anyone is in danger, and get advice before you say anything to anyone.",
-  knowOrg:"Don't pay, delete or reply in a hurry. Keep everything, bring in whoever leads incidents, tell your insurer early, and get specialist advice. Whether and how to engage should be a decision you make deliberately, not a reflex. Payment can carry legal risks too, for example if a sanctioned group is behind it.",
+  fo:"An email arrives at the office: pay in cryptocurrency by tonight, or private information about the family will be published. What's the first move?",
+  optsFo:["Pay quickly, before anything is published","Keep everything, don't reply, and bring in your incident lead and insurer","Ignore it, these threats are usually a bluff","Reply to buy time while the office looks into it"],
+  optsOrg:["Pay quickly, before anything is published","Keep everything, don't reply, and bring in your incident lead and insurer","Ignore it, these threats are usually a bluff","Reply to buy time while IT looks into it"],
+  optsFam:["Pay it, so the photos are never sent","Save the evidence, don't reply or pay, then report it","Block them and report the account to the platform","Reply and ask them to delete everything"],
+  scores:[0,3,1,1],
+  scoresFam:[0,3,1,0],
+  know:"Don't pay and don't reply. Keep the evidence first: messages, usernames, numbers and payment details. Only block them once it's saved. If any images are of someone under 18, don't screenshot, save or forward them, leave them on the device and report it. Under-18s can also use Report Remove, from Childline and the Internet Watch Foundation, to get images taken down. Report to the police on 101, or 999 if anyone is in danger, and get advice before you say anything to anyone.",
+  knowOrg:"Don't pay, delete or reply in a hurry. Keep everything, bring in whoever leads incidents, tell your insurer early, and get specialist advice. Whether and how to engage should be a decision you make deliberately, not a reflex. Payment can carry legal risks too, for example if a sanctioned or terrorist group is behind it.",
   t:"Plan for a demand",
   ao:"Make sure anyone who receives a threat knows: don't reply, pay or delete anything, keep the evidence and tell one named person straight away.",
   af:"Make sure everyone, including teenagers, knows: don't reply, pay or delete anything, keep the evidence and tell you straight away. Nobody will be in trouble. If images of anyone under 18 are involved, don't screenshot, save or forward them, report it instead."},
@@ -547,10 +553,12 @@ var Q=[
   org:"An urgent email from your chief executive asks finance to pay a new supplier today, and to keep it quiet until a deal is announced. What's the first move?",
   fam:"An email from your solicitor says their bank details have changed, and asks you to send the deposit for your new home today. It looks just like their usual emails. What do you do?",
   fo:"An email from the principal, sent while they're travelling, asks the office to pay an invoice today and says not to call because they're in meetings. What's the first move?",
-  optsOrg:["Pay it, the chief executive asked","Reply to the email to check it's genuine","Call the chief executive on a number you already have before anything is paid","Ask a colleague whether it looks genuine"],
-  optsFam:["Pay it, it's from their usual email address","Reply to the email to check it's genuine","Call the firm on a number you already have before paying anything","Forward it to your accountant to deal with"],
-  optsFo:["Pay it, the principal asked","Reply to the email to check it's genuine","Check with the principal on a number you already have, or through someone with them, before anything is paid","Ask a colleague whether it looks genuine"],
-  scores:[0,0,3,1],
+  optsOrg:["Reply to the email and ask them to confirm","Call the chief executive on a number you already have","Call the number in the email signature to check","Pay it, and mention it to the chief executive later"],
+  optsFam:["Call the firm on a number you already have","Call the number in the email signature to check","Reply to the email and ask them to confirm","Pay it, it's from their usual email address"],
+  optsFo:["Reply to the email and ask the principal to confirm","Call the number in the email signature to check","Check with them, or someone with them, on a number you have","Pay it, the principal is clearly busy"],
+  scores:[0,3,0,0],
+  scoresFam:[3,0,0,0],
+  scoresFo:[0,0,3,0],
   know:"Emails like this can come from a real account that's been hacked, so they look exactly right. Never use the contact details in the message itself. Check on a number you already have before any money moves, however urgent or senior the request. If money has already gone, call your bank straight away, then report it to the police through Report Fraud on 0300 123 2040 (Police Scotland on 101 in Scotland).",
   t:"Check before you pay",
   ao:"Agree a simple rule: no new or changed bank details are paid without a call to a number you already have, however senior or urgent the request.",
@@ -570,20 +578,20 @@ var Q=[
   fam:"If the press or social media took an interest, what would happen?",
   fo:"If the press or social media took an interest in the family, who speaks, and who signs off what's said?",
   optsFo:["It's not agreed","Probably the principal or the head of the office, but nothing formal","A spokesperson and sign-off are agreed","Agreed, with stand-ins, and we've practised it"],
-  optsOrg:["It's not agreed","Probably the CEO, but nothing formal","A spokesperson and sign-off are agreed","Agreed, with stand-ins, and we've practised it"],
+  optsOrg:["It's not agreed","Probably the chief executive, but nothing formal","A spokesperson and sign-off are agreed","Agreed, with stand-ins, and we've practised it"],
   optsFam:["Honestly, anyone might say something","We'd work it out at the time","We've agreed who speaks for us","We've agreed who speaks, and family and staff know to say nothing"],
   t:"Agree who speaks",
   ao:"Agree who speaks for the organisation and who signs off statements, with a stand-in for each.",
   afo:"Agree who speaks for the family and who signs off statements, with a stand-in for each, and make sure staff know to say nothing.",
   af:"Decide who would speak for you, and agree with family and staff that nobody comments publicly until they've checked with that person."}
 ];
-/* situations shown in the results: the two that score highest from the situation answers. Abroad, wrench, virtual and extortion steps follow SJ Group's published guidance; the insider steps need Nick's sign-off. */
+/* situations shown in the results: the two that score highest from the situation answers. All first-hour steps need Nick's sign-off before going live, the insider steps especially. */
 var SCEN=[
  {k:"abroad", score:function(a){return a.travel*2},
   t:"An incident while someone is abroad",
   why:"Because people travel to places where kidnap, detention or unrest is a known risk.",
   fh:["Write down everything: times, exact words, any demands or deadlines. Don't agree to a payment, an amount or a deadline.",
-      "Tell the FCDO on +44 (0)20 7008 5000 (24 hours), and check discreetly whether any policy includes kidnap and ransom cover.",
+      "If they're British, tell the FCDO on +44 (0)20 7008 5000 (24 hours), and check discreetly whether any policy includes kidnap and ransom cover.",
       "Keep it to a small group, stay off social media and away from the press, and get specialist advice before you reply."],
   fhOrg:["Write down everything: times, exact words, any demands or deadlines. Don't agree to a payment, an amount or a deadline.",
       "Tell the FCDO on +44 (0)20 7008 5000 (24 hours) if they're British, or their own embassy if not, and tell your insurer and broker discreetly.",
@@ -591,6 +599,9 @@ var SCEN=[
  {k:"wrench", score:function(a){return a.crypto===2?5:(a.crypto===1?2:0)},
   t:"A forced handover of crypto, known as a wrench attack",
   why:"Because criminals now target people they believe hold digital assets, at home or in person.",
+  fhOrg:["Everyone's safety comes first. No amount of money is worth resisting.",
+      "Once safe, call 999, then contact the exchanges or custodians involved straight away.",
+      "Be wary of anyone who gets in touch offering to recover the funds, and talk to a specialist before responding to anyone."],
   fh:["Your safety, and your family's, comes first. No amount of money is worth resisting.",
       "Once safe, call 999, then contact the exchanges or custodians involved straight away.",
       "Be wary of anyone who gets in touch offering to recover the funds, and talk to a specialist before responding to anyone."]},
@@ -612,7 +623,10 @@ var SCEN=[
   whyFn:function(a){return a.profile>0?null:"Because personal details and whereabouts shared online give people something to threaten you with."},
   fh:["Don't pay, and don't reply. Keep the evidence: don't delete messages, usernames, numbers or bank details. If any images are of someone under 18, don't screenshot, save or forward them, leave them where they are and report it.",
       "Report it to the police on 101, or 999 if anyone is in immediate danger.",
-      "Get advice before you say anything publicly, to staff, or to the person making the threat."]},
+      "Get advice before you say anything publicly, to staff, or to the person making the threat."],
+  fhOrg:["Keep everything, and don't reply, pay or delete anything in a hurry. If anyone is in immediate danger, call 999.",
+      "Bring in whoever leads incidents, your insurer or broker and specialists, and report it to the police. If personal data is involved, check whether you need to tell the ICO within 72 hours.",
+      "Get legal and specialist advice before any decision about engaging or paying. Payment can carry legal risks, for example if a sanctioned or terrorist group is behind it."]},
  {k:"insider", score:function(a){return a.people*2},
   t:"Information leaking through people close to you",
   why:"Because people outside the family know your homes, routines or children's movements.",
@@ -657,11 +671,13 @@ function show(id){
 }
 function say(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(say.t);say.t=setTimeout(function(){t.classList.remove("show")},2200);$("live").textContent=m}
 
-/* every screen in order: five situation questions, then the twelve readiness questions */
+/* every screen in order: five situation questions, then the thirteen readiness questions */
 var NS=SIT.length;
 var ITEMS=SIT.map(function(x){return {kind:"sit",s:0,sit:x}}).concat(Q.map(function(q,qi){return {kind:"q",s:q.s+1,q:q,qi:qi}}));
 function qa(qi){return answers[NS+qi]}
-function qv(qi){var a=qa(qi),q=Q[qi];return q.scores?q.scores[a]:a}
+function scoresOf(q){return aud==="fam"?(q.scoresFam||q.scores):(aud==="fo"?(q.scoresFo||q.scores):q.scores)}
+function titleOf(q){return (aud==="fam"&&q.tFam)||q.t}
+function qv(qi){var a=qa(qi),q=Q[qi],sc=scoresOf(q);return sc?sc[a]:a}
 
 /* intro */
 Array.prototype.forEach.call(document.querySelectorAll(".choice[data-aud]"),function(b){
@@ -771,7 +787,13 @@ function pickScenarios(){
   return out;
 }
 function gapLine(r){
-  if(r.exposure>=60&&r.score<65)return "Your exposure is higher than your readiness. That's the gap criminals look for, and the one worth closing first.";
+  if(adv){
+    if(r.exposure>=60&&r.score<65)return "Your client's exposure is higher than their readiness. That's the gap worth closing first.";
+    if(r.exposure>=60)return "Your client is more visible than most, and has done a lot of the work. The job now is keeping it current as things change.";
+    if(r.score<40)return "Your client's exposure isn't high, but a few foundations are missing. Small steps now would make a real difference if something did happen.";
+    return "";
+  }
+  if(r.exposure>=60&&r.score<65)return "Your exposure is higher than your readiness. That's the gap worth closing first.";
   if(r.exposure>=60)return "You're more visible than most, and you've done a lot of the work. The job now is keeping it current as things change.";
   if(r.score<40)return "Your exposure isn't high, but a few foundations are missing. Small steps now would make a real difference if something did happen.";
   return "";
@@ -794,7 +816,7 @@ function showResults(){
   $("expoName").textContent=eb.name;
   $("expoText").textContent=eb.text;
   var why=$("expoWhy");why.innerHTML="";
-  SIT.forEach(function(x,i){if(answers[i]>=1){var li=document.createElement("li");li.textContent=whyOf(x);why.appendChild(li)}});
+  SIT.forEach(function(x,i){if(answers[i]>=1){var li=document.createElement("li");li.textContent=(answers[i]===1&&x.why1)?x.why1:whyOf(x);why.appendChild(li)}});
   why.hidden=!why.children.length;
   var g=gapLine(r);$("gapText").textContent=g;$("gapText").hidden=!g;
   $("expo").setAttribute("aria-label","Your exposure: "+eb.name);
@@ -804,8 +826,8 @@ function showResults(){
     if(!q.quiz||qv(qi)===3)return;
     var d=document.createElement("div");d.className="kn";
     d.innerHTML="<span class=\"fh\">Worth knowing</span><b></b><span class=\"you\"></span><p></p>";
-    d.querySelector("b").textContent=q.t;
-    d.querySelector(".you").textContent="You chose: “"+optsQ(q)[qa(qi)]+"”. The safer first move is: “"+optsQ(q)[q.scores.indexOf(3)]+"”.";
+    d.querySelector("b").textContent=titleOf(q);
+    d.querySelector(".you").textContent=(adv?"Answered: “":"You chose: “")+optsQ(q)[qa(qi)]+"”. The safer first move is: “"+optsQ(q)[scoresOf(q).indexOf(3)]+"”.";
     d.querySelector("p").textContent=(aud!=="fam"&&q.knowOrg)?q.knowOrg:q.know;
     kl.appendChild(d);
   });
@@ -835,9 +857,9 @@ function showResults(){
     steps.forEach(function(i){
       var q=Q[i],li=document.createElement("li");
       li.innerHTML="<b></b><span></span><em></em>";
-      li.querySelector("b").textContent=q.t;
+      li.querySelector("b").textContent=titleOf(q);
       li.querySelector("span").textContent=stepOf(q);
-      li.querySelector("em").textContent=STAGES[q.s+1]+" · you answered “"+optsQ(q)[qa(i)]+"”";
+      li.querySelector("em").textContent=STAGES[q.s+1]+" · "+(adv?"answered":"you answered")+" “"+optsQ(q)[qa(i)]+"”";
       ol.appendChild(li);
     });
   }
@@ -849,7 +871,7 @@ function showResults(){
   $("expoEyebrow").textContent=adv?"Your client's exposure":"Your exposure";
   $("printSub").textContent=MODE_NAME[aud]+(adv?", answered by an adviser on a client's behalf":"")+" · "+new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
   $("ctaTitle").textContent=adv?"Talk to us about your client, in confidence":"Talk your results through, in confidence";
-  $("ctaText").textContent=adv?"Book a Readiness Check debrief: a private 20 minute conversation with Nick Shah OBE about your client's results and what might help, with no obligation.":"Book a Readiness Check debrief: a private 20 minute conversation with Nick Shah OBE about your results and what to do first, with no obligation.";
+  $("ctaText").textContent=adv?"Book a Readiness Check debrief: a private 20-minute conversation with Nick Shah OBE about your client's results and what might help, with no obligation.":"Book a Readiness Check debrief: a private 20-minute conversation with Nick Shah OBE about your results and what to do first, with no obligation.";
   $("keepText").textContent=adv?"Save a copy to talk through with your client. The PDF is marked confidential.":(aud==="fo"?"Save a copy for the principals, the office or your advisers. The PDF is marked confidential.":(aud==="org"?"Save a copy for your board, leadership team or advisers. The PDF is marked confidential.":"Save a copy for yourself, or to share with your family office or advisers. The PDF is marked confidential."));
   $("copyBox").hidden=true;
   resetOptin();
@@ -871,7 +893,7 @@ function summary(){
   lines.push("Situations worth planning for:");
   last.scen.forEach(function(item){var sc=item.sc;lines.push("- "+sc.t);(((aud!=="fam")&&sc.fhOrg)||sc.fh).forEach(function(s,k){lines.push("  "+(k+1)+". "+s)})});
   lines.push("");
-  if(last.steps.length){lines.push("Places to start:");last.steps.forEach(function(i,k){lines.push((k+1)+". "+Q[i].t+": "+stepOf(Q[i]))})}
+  if(last.steps.length){lines.push("Places to start:");last.steps.forEach(function(i,k){lines.push((k+1)+". "+titleOf(Q[i])+": "+stepOf(Q[i]))})}
   lines.push("","sjgroupinternational.com");
   return lines.join("\n");
 }
@@ -880,7 +902,7 @@ $("copyBtn").addEventListener("click",function(){
   function fallback(){box.value=text;box.hidden=false;box.focus();box.select();say("Select the text below and copy it.")}
   try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){say("Results copied. Paste them anywhere to keep them.")},fallback)}else fallback()}catch(e){fallback()}
 });
-$("restartBtn").addEventListener("click",function(){aud=null;adv=false;showWho(false);idx=0;answers=[];last=null;$("ringFill").setAttribute("stroke-dashoffset","389.6");resetOptin();show("intro")});
+$("restartBtn").addEventListener("click",function(){showWho(adv);aud=null;adv=false;$("fEmail").value="";$("fName").value="";$("fUpdates").checked=false;idx=0;answers=[];last=null;$("ringFill").setAttribute("stroke-dashoffset","389.6");resetOptin();show("intro")});
 
 /* Save as PDF: the browser's print dialog, with a print layout that shows only the results */
 $("pdfBtn").addEventListener("click",function(){
@@ -909,7 +931,7 @@ $("optin").addEventListener("submit",function(e){
     source:"readiness-check:"+(adv?"adviser-":"")+MODE_LABEL[aud],
     score:last.r.score,
     band:last.band.name+" · "+last.eb.name,
-    focus_areas:last.steps.map(function(i){return Q[i].t}),
+    focus_areas:last.steps.map(function(i){return titleOf(Q[i])}),
     wants_updates:$("fUpdates").checked
   };
   btn.disabled=true;btn.textContent="Sending…";
