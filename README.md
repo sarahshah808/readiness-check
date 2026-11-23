@@ -10,6 +10,9 @@ Everything is in `public/index.html`:
 
 - The five situation questions are in `SIT`. Each option scores 0, 1 or 2 towards the exposure score, and `EXPO_BANDS` holds the four exposure bands.
 - The situations shown in the results, with their first-hour steps, are in `SCEN`. The two with the highest score from the situation answers are shown.
+- Three audiences: `fam` (private), `fo` (family office) and `org` (organisation). Family offices use their own wording where a question has it (`fo`, `optsFo`, `afo`, `whyFo`), otherwise the organisation wording.
+- Advisers ("I advise clients") can copy a link or a short message to send to a client, or answer on a client's behalf. `adv` is true in that case, and the results and PDF say they're for a client.
+- Sign-ups record the audience and adviser mode in `source` (for example `readiness-check:adviser-family-office`). The Supabase insert policy only accepts the values listed there, so add any new mode to the policy too.
 - The readiness questions, and the next-step advice for each, are in the `Q` list near the bottom. Each question has organisation wording (`org`) and family wording (`fam`), a step title (`t`), and the organisation and family actions (`ao`, `af`).
 - The four score bands (Early stages, Developing, Prepared, Ready) are in `BANDS`.
 - The enquiry button goes to the website contact page with tracking tags, so enquiries from the check show up in analytics.

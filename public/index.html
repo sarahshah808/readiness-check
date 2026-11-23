@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The Readiness Check</title>
 <meta name="robots" content="noindex">
-<meta name="description" content="Seventeen questions, about four minutes. How exposed you are, how ready you are for a serious incident, and where to start. From SJ Group International.">
+<meta name="description" content="Eighteen questions, about five minutes. How exposed you are, how ready you are for a serious incident, and where to start. From SJ Group International.">
 <script>
 /* Embedded mode: when this page is shown inside another site (e.g. the Wix page at sjgroupinternational.com/readiness-check),
    or opened with ?embed=1, hide our own brand bar, title, intro and footer, because the host page already has them. */
@@ -191,7 +191,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
   .steps li{break-inside:avoid}
   .screen{animation:none}
   .cta{break-inside:avoid;background:none}
-  .cta .cta-row::after{content:"Book a call: sjgroupinternational.com/book-online  |  +44 (0)20 8050 2939";font-size:.85rem;color:var(--navy)}
+  .cta .cta-row::after{content:"Book a debrief: sjgroupinternational.com/book-online";font-size:.85rem;color:var(--navy)}
   .cta .btn{display:none}
   body{font-size:12.5px}
   .res-top{margin-top:14px;padding:18px 22px}
@@ -210,6 +210,28 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
   @page{margin:14mm}
 }
 
+
+/* advisers and family offices (v2) */
+.adv-lede{margin:8px 0 0;font-size:.9rem;color:var(--muted);max-width:56ch}
+.adv-card{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:grid;gap:8px}
+.adv-card h3{font-size:1.15rem}
+.adv-card p{margin:0;font-size:.86rem}
+@media (min-width:560px){.adv-card .choices{grid-template-columns:repeat(3,1fr)}}
+#advBack{margin-top:16px}
+.for-client{margin-top:18px;padding:10px 14px;border-left:3px solid var(--bronze);background:var(--bronze-pale);font-size:.82rem;border-radius:0 8px 8px 0}
+.who-by{margin:16px 0 0;font-size:.82rem;color:var(--muted);max-width:60ch}
+.print-head{display:none}
+@media print{
+  .print-head{display:flex!important;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:2px solid var(--navy);padding-bottom:8px;margin-bottom:6px}
+  .print-head b{font-family:var(--f-display);font-weight:400;font-size:1.3rem;color:var(--navy)}
+  .print-head span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze)}
+  .print-sub{display:block!important;font-size:.78rem;color:var(--muted);margin:0 0 4px}
+  .print-foot{display:block!important;margin-top:14px;padding-top:8px;border-top:1px solid var(--line);font-size:.72rem;color:var(--muted)}
+  .brandbar,.embedded .brandbar,.disclaimer{display:none!important}
+  .for-client{break-inside:avoid}
+}
+.print-sub,.print-foot{display:none}
+
 /* embedded mode (see script in head) */
 .embedded .brandbar,.embedded #intro h1,.embedded #intro .lede,.embedded .foot{display:none}
 .embedded .wrap{padding-block:24px 40px}
@@ -226,18 +248,43 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
     <!-- intro -->
     <section class="screen" id="intro">
       <h1>The Readiness Check</h1>
-      <p class="lede">How exposed are you, and how ready? Five quick questions about your situation, then twelve on how you'd cope if something serious happened tonight. You'll get two scores, the situations most worth planning for, and practical places to start.</p>
+      <p class="lede">How exposed are you, and how ready? Five quick questions about your situation, then thirteen on how you'd cope if something serious happened tonight. You'll get two scores, the situations most worth planning for, and practical places to start.</p>
       <ul class="facts">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>About four minutes</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>17 questions</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Anonymous by default</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>About five minutes</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>18 questions</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Your answers never leave your device</li>
       </ul>
-      <div class="who">
+      <div class="who" id="whoMain">
         <h2>Who are you answering for?</h2>
         <div class="choices">
-          <button type="button" class="choice" data-aud="org"><b>An organisation</b><small>A business, firm, family office or other organisation</small></button>
           <button type="button" class="choice" data-aud="fam"><b>Myself and my family</b><small>You, your family, your homes and the people who help you</small></button>
+          <button type="button" class="choice" data-aud="fo"><b>A family office</b><small>The principals, their family, and the office that looks after them</small></button>
+          <button type="button" class="choice" data-aud="org"><b>An organisation</b><small>A business, firm or other organisation</small></button>
+          <button type="button" class="choice" id="advBtn"><b>I advise clients</b><small>Private client lawyers, wealth managers and other trusted advisers</small></button>
         </div>
+      </div>
+      <div class="who adv" id="whoAdv" hidden>
+        <h2 id="advTitle" tabindex="-1">For advisers</h2>
+        <p class="adv-lede">Two ways to use the Readiness Check with a client. Either way, nothing they or you answer is sent to us.</p>
+        <div class="adv-card">
+          <h3>Send it to a client</h3>
+          <p>They take it themselves, in private. Their answers stay on their device, and you'll only see their results if they choose to share them.</p>
+          <div class="cta-row">
+            <button type="button" class="btn" id="advCopyLink">Copy the link</button>
+            <button type="button" class="btn ghost" id="advCopyMsg">Copy a short message to send</button>
+          </div>
+          <textarea class="copy-box" id="advBox" readonly hidden aria-label="Text to copy"></textarea>
+        </div>
+        <div class="adv-card">
+          <h3>Answer on a client's behalf</h3>
+          <p>Answer as you think your client would. Wherever a question says "you", read it as your client. You can save the results as a PDF to talk through with them.</p>
+          <div class="choices">
+            <button type="button" class="choice" data-aud="fam" data-adv="1"><b>A private client</b><small>An individual or family</small></button>
+            <button type="button" class="choice" data-aud="fo" data-adv="1"><b>A family office client</b><small>The principals and their office</small></button>
+            <button type="button" class="choice" data-aud="org" data-adv="1"><b>A business client</b><small>A company or other organisation</small></button>
+          </div>
+        </div>
+        <button type="button" class="link-btn" id="advBack">Back</button>
       </div>
       <p class="privacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg>
         Your answers stay on this device and you don't need to give your name or contact details to see your results. Nothing is sent to us unless you choose to leave your email at the end, and even then we only receive your email, your score and your focus areas, never your individual answers.</p>
@@ -246,6 +293,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
     <!-- question -->
     <section id="quiz" hidden>
       <div class="progress" id="progress" aria-hidden="true"></div>
+      <p class="for-client" id="qClient" hidden>You're answering for a client. "You" means your client.</p>
       <div class="qhead"><span class="qstage" id="qStage"></span><span class="qcount" id="qCount"></span></div>
       <h2 class="qtext" id="qText" tabindex="-1"></h2>
       <div class="answers" id="answers" role="group" aria-labelledby="qText"></div>
@@ -258,6 +306,9 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 
     <!-- results -->
     <section id="results" hidden>
+      <div class="print-head" aria-hidden="true"><b>The Readiness Check</b><span>SJ Group International &middot; Confidential</span></div>
+      <p class="print-sub" id="printSub"></p>
+      <p class="for-client" id="rClient" hidden>These results are for your client, from the answers you gave on their behalf.</p>
       <div class="res-top">
         <svg class="ring" viewBox="0 0 150 150" role="img" id="ring">
           <circle cx="75" cy="75" r="62" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="10"/>
@@ -267,7 +318,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
           <text x="75" y="104" text-anchor="middle" font-size="11" fill="#d9bd9a" letter-spacing="2">OUT OF 100</text>
         </svg>
         <div>
-          <div class="eyebrow">Your readiness</div>
+          <div class="eyebrow" id="readEyebrow">Your readiness</div>
           <h2 id="bandName" tabindex="-1"></h2>
           <p id="bandText"></p>
         </div>
@@ -277,7 +328,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 
       <div class="expo" id="expo">
         <div class="expo-head">
-          <span class="eyebrow">Your exposure</span>
+          <span class="eyebrow" id="expoEyebrow">Your exposure</span>
           <span class="expo-name" id="expoName"></span>
         </div>
         <div class="expo-track" aria-hidden="true"><span class="expo-fill" id="expoFill"></span></div>
@@ -301,7 +352,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 
       <div class="keep" id="keep">
         <h3>Keep your results</h3>
-        <p>Save a copy for yourself, or to share with your family office, board or advisers.</p>
+        <p id="keepText">Save a copy for yourself, or to share with your family office, board or advisers. The PDF is marked confidential.</p>
         <div class="cta-row">
           <button type="button" class="btn" id="pdfBtn">Save as PDF</button>
           <button type="button" class="btn ghost" id="copyBtn">Copy as text</button>
@@ -326,10 +377,11 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
       </div>
 
       <div class="cta">
-        <h3>Talk it through, in confidence</h3>
-        <p id="ctaText">Every situation is different. A short, confidential conversation with our team can help you decide what matters most for you, with no obligation.</p>
+        <h3 id="ctaTitle">Talk your results through, in confidence</h3>
+        <p id="ctaText">Book a Readiness Check debrief: a private conversation about your results and what to do first, with no obligation.</p>
+        <p class="who-by">SJ Group International was founded by Nick Shah OBE, formerly of the National Crime Agency. Our 24/7 line is <a href="tel:+442080502939">+44 (0)20 8050 2939</a>.</p>
         <div class="cta-row">
-          <a class="btn" id="book" href="https://www.sjgroupinternational.com/book-online" target="_blank" rel="noopener">Book a confidential conversation</a>
+          <a class="btn" id="book" href="https://www.sjgroupinternational.com/booking-calendar/readiness-check-debrief" target="_blank" rel="noopener">Book a Readiness Check debrief</a>
           <a class="btn ghost" id="enquire" href="https://www.sjgroupinternational.com/contact" target="_blank" rel="noopener">Make a discreet enquiry</a>
         </div>
       </div>
@@ -338,6 +390,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
         <button type="button" class="btn ghost" id="restartBtn">Start again</button>
       </div>
       <textarea class="copy-box" id="copyBox" readonly hidden aria-label="Your results as text"></textarea>
+      <p class="print-foot" id="printFoot">SJ Group International &middot; sjgroupinternational.com &middot; 24/7 line +44 (0)20 8050 2939. A general guide to help you reflect, not a full assessment or professional advice.</p>
       <p class="disclaimer">The Readiness Check is a general guide to help you reflect, not a full assessment or professional advice. Your individual answers are not stored anywhere, so save a copy if you'd like to keep them.</p>
     </section>
   </main>
@@ -359,31 +412,37 @@ var SIT=[
  {k:"travel",
   org:"Do any of your people travel or work in places where kidnap, detention or unrest is a known risk?",
   fam:"Does anyone in the family travel, study or work in places where kidnap, detention or unrest is a known risk?",
+  fo:"Do the principals, their family or the office team travel, study or work in places where kidnap, detention or unrest is a known risk?",
   opts:["No","Occasionally","Regularly"],
   why:"Travel to places where kidnap, detention or unrest is a known risk"},
  {k:"profile",
   org:"How visible are your senior people, or the wealth around the business, in the press, online or in your sector?",
   fam:"How visible are you, your wealth or your homes, in the press, online or in your community?",
+  fo:"How visible are the principals, the family's wealth or their homes, in the press, online or in their circles?",
   opts:["Not very","Somewhat","Very"],
   why:"A visible profile or visible wealth"},
  {k:"crypto",
   org:"Do the business or any of your senior people hold significant cryptocurrency or other digital assets?",
   fam:"Does anyone in the family hold significant cryptocurrency or other digital assets, or talk about doing so?",
+  fo:"Do the principals, their family or the office hold significant cryptocurrency or other digital assets?",
   opts:["No","Not sure","Yes"],
   why:"Digital assets, which criminals now target in person"},
  {k:"people",
   org:"Do people outside your core team, such as contractors, agency staff or suppliers, have access to your sites, schedules or sensitive information?",
   fam:"Do household staff, drivers, nannies or contractors know your homes, routines or children's movements?",
+  fo:"Do household staff, drivers, contractors or suppliers know the family's homes, routines or children's movements?",
   opts:["No","A few","Many"],
   why:"People outside the family who know your homes and routines",
+  whyFo:"People outside the family who know their homes and routines",
   whyOrg:"People outside the core team with access to sites, schedules or information"},
  {k:"online",
   org:"Do your senior people or their families post publicly about travel, homes or where they'll be?",
   fam:"Do family members, especially children, post about where they are, holidays or homes, while it's happening?",
+  fo:"Do the principals or family members, especially children, post about where they are, holidays or homes, while it's happening?",
   opts:["Rarely","Sometimes","Often"],
   why:"Whereabouts and routines shared online, often in real time"}
 ];
-/* twelve readiness questions. Each has its own four answers describing real situations, scored 0 to 3 in order, so nobody is handed the "right" answer.
+/* thirteen readiness questions (three of them "what would you do?"). Each has its own four answers describing real situations, scored 0 to 3 in order, so nobody is handed the "right" answer.
    s: stage (0 Assess, 1 Prepare, 2 Respond). org/fam: question wording. opts, or optsOrg/optsFam: the four answers.
    Two are "what would you do?" questions (quiz:true). Their answers are not in order: "scores" gives each answer's score, and "know" is the explanation shown in the results if someone didn't pick the best answer.
    t/ao/af: the next-step title and the organisation and family actions. */
@@ -391,6 +450,7 @@ var Q=[
  {s:0,
   org:"Has your leadership agreed the few events that would hurt the organisation most?",
   fam:"Have you and your family talked about the few situations that would hurt you most?",
+  fo:"Have the principals and the office agreed the few situations that would hurt the family most?",
   optsOrg:["Not really","We've discussed it, but nothing's written down","We've agreed them and written them down","Agreed, written down and looked at again this year"],
   optsFam:["Not really","We've touched on it","We've named the main ones","We've named them, and know who'd be involved in each"],
   t:"Name your biggest risks",
@@ -399,13 +459,16 @@ var Q=[
  {s:0,
   org:"When did anyone last search for your senior people the way a criminal would?",
   fam:"When did anyone last search for you and your family the way a criminal would?",
+  fo:"When did anyone last search for the principals and their family the way a criminal would?",
   opts:["Never","More than a year ago","In the last year","In the last year, and we removed what we could"],
   t:"See what's out there",
   ao:"Search for your senior people the way an outsider would, and note anything that reveals routines, locations or family details.",
+  afo:"Search for the principals and their family the way an outsider would, and note anything that reveals routines, addresses or children's details.",
   af:"Search for yourself and your family the way a stranger would, and note anything that reveals routines, addresses or children's details."},
  {s:0,
   org:"If your systems were down tonight, could people reach your crisis plan?",
   fam:"If something serious happened tonight, where's the plan?",
+  fo:"If the office systems were down tonight, could the right people reach the family's crisis plan?",
   optsOrg:["We don't really have one","It's on our systems","There's a copy offline","There are copies offline, and the key people know where"],
   optsFam:["There isn't one","It's in my head","It's written down","It's written down, and someone I trust has a copy"],
   t:"Make the plan reachable",
@@ -414,6 +477,7 @@ var Q=[
  {s:0,
   org:"Who owns the plan, and when was it last checked?",
   fam:"When was the plan, and the people named in it, last checked?",
+  fo:"Who owns the family's crisis plan, and when was it last checked?",
   optsOrg:["There's no plan or owner yet","There's a plan, but no clear owner","There's a named owner, but it hasn't been checked this year","A named owner, and checked in the last 12 months"],
   optsFam:["There's no plan yet","More than two years ago","In the last two years","In the last 12 months"],
   t:"Give the plan an owner",
@@ -422,6 +486,7 @@ var Q=[
  {s:1,
   org:"If your main decision-maker were unreachable for 48 hours, who could act?",
   fam:"If you were unreachable for 48 hours, who could make decisions for you?",
+  fo:"If the principal and the head of the office were both unreachable for 48 hours, who could act?",
   optsOrg:["No one, really","Someone would step in, but nothing's agreed","A deputy is agreed","A deputy is agreed in writing, with clear limits"],
   optsFam:["No one, really","Someone would step in, but nothing's agreed","It's agreed with one person","It's agreed and written down, and they know where everything is"],
   t:"Agree who decides",
@@ -430,14 +495,17 @@ var Q=[
  {s:1,
   org:"When did your leadership team last work through a realistic scenario together?",
   fam:"Have the people who'd help you, such as family, staff or advisers, ever talked through a \"what if\" together?",
+  fo:"When did the principals and the office last work through a realistic scenario together?",
   optsOrg:["Never","More than a year ago","In the last year","In the last year, and we changed things because of it"],
   optsFam:["Never","Briefly, once","Yes, in the last year","Yes, and we changed things because of it"],
   t:"Talk through a scenario",
   ao:"Book thirty minutes with your leadership team to talk through one realistic scenario. Gaps show up quickly.",
+  afo:"Book thirty minutes with the principals and key people in the office to talk through one realistic scenario. Gaps show up quickly.",
   af:"Talk through one 'what if' with the people who'd help you, over a coffee rather than in the middle of a crisis."},
  {s:1,
   org:"If a colleague was travelling tonight, how quickly could you confirm where they are and that they're safe?",
   fam:"If a family member was travelling tonight, how quickly could you confirm where they are and that they're safe?",
+  fo:"If a family member was travelling tonight, how quickly could the office confirm where they are and that they're safe?",
   optsOrg:["I'm not sure we could","It might take a while","Within an hour, usually","Within an hour, every time. We track travel and check in"],
   optsFam:["I'm not sure I could","It might take a while","Within an hour, usually","Within an hour, every time. We share plans and check in"],
   t:"Know who's travelling",
@@ -446,6 +514,7 @@ var Q=[
  {s:1,
   org:"Have staff, contractors and suppliers been told what not to share about your people, sites and schedules?",
   fam:"Have household staff, drivers and others close to you been told what not to share about your homes, routines and travel?",
+  fo:"Have household staff, drivers, contractors and suppliers been told what not to share about the family's homes, routines and travel?",
   opts:["It's never come up","It's understood, but never actually said","We've talked about it","We've talked about it, and they know who to tell if someone asks questions"],
   t:"Brief the people around you",
   ao:"Give staff and key suppliers a short, plain brief on what not to share and who to tell if someone starts asking questions.",
@@ -453,16 +522,19 @@ var Q=[
  {s:2, quiz:true,
   org:"The office gets a call. The caller says they're holding one of your senior people abroad and wants a large payment within the hour. They say don't call the police. What's the first move?",
   fam:"Your phone rings. A caller says they're holding your son and wants £20,000 within the hour. They say don't call the police. What's your first move?",
+  fo:"The office gets a call. The caller says they're holding one of the principal's children and wants a large payment within the hour. They say don't call the police. What's the first move?",
   optsOrg:["Arrange the payment quickly, it's not worth the risk","Stay calm, agree to nothing, and get someone else to try to reach them another way","End the call and phone the police","Do exactly what the caller says until you know more"],
   optsFam:["Pay quickly, it's not worth the risk","Stay calm, agree to nothing, and get someone else to try to reach him another way","Hang up and phone the police","Do exactly what the caller says until you know more"],
   scores:[0,3,2,0],
-  know:"Many of these calls are fake, and they fall apart once someone reaches the person another way. Stay as calm as you can, agree to nothing, not an amount and not a deadline, and get someone else to try to reach them. If you think it may be real, or you're not sure, call 999, then call specialist help.",
+  know:"Many of these calls are fake, and they fall apart once someone reaches the person another way. Stay as calm as you can, agree to nothing, not an amount and not a deadline, and get someone else to try to reach them. This isn't advice to avoid the police: if you think it may be real, or you're not sure, call 999, then call specialist help.",
   t:"Plan for the call",
   ao:"Agree what anyone taking a threatening call should do: stay calm, agree to nothing, try to reach the person another way, call 999 if in doubt, then call your specialist.",
   af:"Agree a family code word that's never written down or posted, and make sure everyone knows: agree to nothing, try to reach the person another way, call 999 if in doubt, then call your specialist."},
  {s:2, quiz:true,
   org:"An email arrives: pay in crypto by tonight, or data stolen from you will be published. What's the first move?",
   fam:"A message arrives: pay £5,000 by tonight, or private messages and photos will be sent to everyone you know. What do you do first?",
+  fo:"An email arrives at the office: pay in crypto by tonight, or private information about the family will be published. What's the first move?",
+  optsFo:["Pay quickly to protect the family","Delete it, it's probably a bluff","Reply to buy time and handle it in the office","Keep everything, don't reply yet, and bring in your incident lead, insurer and specialists"],
   optsOrg:["Pay quickly to protect customers and staff","Delete it, it's probably a bluff","Reply to buy time and handle it yourselves","Keep everything, don't reply yet, and bring in your incident lead, insurer and specialists"],
   optsFam:["Pay, so it goes away","Delete everything and block them straight away","Reply and try to reason with them","Keep the evidence, don't reply or pay, then report it and get advice"],
   scores:[0,1,1,3],
@@ -471,9 +543,23 @@ var Q=[
   t:"Plan for a demand",
   ao:"Make sure anyone who receives a threat knows: don't reply, pay or delete anything, keep the evidence and tell one named person straight away.",
   af:"Make sure everyone, including teenagers, knows: don't reply, pay or delete anything, keep the evidence and tell you straight away. Nobody will be in trouble. If images of anyone under 18 are involved, don't screenshot, save or forward them, report it instead."},
+ {s:2, quiz:true,
+  org:"An urgent email from your chief executive asks finance to pay a new supplier today, and to keep it quiet until a deal is announced. What's the first move?",
+  fam:"An email from your solicitor says their bank details have changed, and asks you to send the deposit for your new home today. It looks just like their usual emails. What do you do?",
+  fo:"An email from the principal, sent while they're travelling, asks the office to pay an invoice today and says not to call because they're in meetings. What's the first move?",
+  optsOrg:["Pay it, the chief executive asked","Reply to the email to check it's genuine","Call the chief executive on a number you already have before anything is paid","Ask a colleague whether it looks genuine"],
+  optsFam:["Pay it, it's from their usual email address","Reply to the email to check it's genuine","Call the firm on a number you already have before paying anything","Forward it to your accountant to deal with"],
+  optsFo:["Pay it, the principal asked","Reply to the email to check it's genuine","Check with the principal on a number you already have, or through someone with them, before anything is paid","Ask a colleague whether it looks genuine"],
+  scores:[0,0,3,1],
+  know:"Emails like this can come from a real account that's been hacked, so they look exactly right. Never use the contact details in the message itself. Check on a number you already have before any money moves, however urgent or senior the request. If money has already gone, call your bank straight away, then report it to the police through Report Fraud on 0300 123 2040 (Police Scotland on 101 in Scotland).",
+  t:"Check before you pay",
+  ao:"Agree a simple rule: no new or changed bank details are paid without a call to a number you already have, however senior or urgent the request.",
+  af:"Make it a family rule: never pay new or changed bank details without calling on a number you already have, especially for a house purchase.",
+  afo:"Agree a simple rule for the office: no new or changed bank details are paid without checking with the person on a number you already have, however senior or urgent the request."},
  {s:2,
   org:"If something urgent came up at 2am on a bank holiday, how would it reach a decision-maker?",
   fam:"If staff or family felt something was wrong at 2am, who would they call?",
+  fo:"If something urgent came up at 2am on a bank holiday, how would it reach the principal or whoever decides?",
   optsOrg:["It probably wouldn't until the morning","Someone would try a few phones","There's an agreed out-of-hours route","An agreed route, with insurer, legal and specialist contacts to hand"],
   optsFam:["I'm not sure they'd call anyone","Probably me, if they could reach me","There's one agreed number they all know","One agreed number, and our insurer and advisers' contacts are kept together"],
   t:"Check the 2am route",
@@ -482,10 +568,13 @@ var Q=[
  {s:2,
   org:"If the media or social media took an interest, who speaks, and who signs off what's said?",
   fam:"If the press or social media took an interest, what would happen?",
+  fo:"If the press or social media took an interest in the family, who speaks, and who signs off what's said?",
+  optsFo:["It's not agreed","Probably the principal or the head of the office, but nothing formal","A spokesperson and sign-off are agreed","Agreed, with stand-ins, and we've practised it"],
   optsOrg:["It's not agreed","Probably the CEO, but nothing formal","A spokesperson and sign-off are agreed","Agreed, with stand-ins, and we've practised it"],
   optsFam:["Honestly, anyone might say something","We'd work it out at the time","We've agreed who speaks for us","We've agreed who speaks, and family and staff know to say nothing"],
   t:"Agree who speaks",
   ao:"Agree who speaks for the organisation and who signs off statements, with a stand-in for each.",
+  afo:"Agree who speaks for the family and who signs off statements, with a stand-in for each, and make sure staff know to say nothing.",
   af:"Decide who would speak for you, and agree with family and staff that nobody comments publicly until they've checked with that person."}
 ];
 /* situations shown in the results: the two that score highest from the situation answers. Abroad, wrench, virtual and extortion steps follow SJ Group's published guidance; the insider steps need Nick's sign-off. */
@@ -509,6 +598,7 @@ var SCEN=[
   t:"A fake kidnap call, or virtual kidnapping",
   why:"Because details of where family members are can be found online, which is exactly what these callers use.",
   whyOrg:"Because details of where your people are, and who their families are, can be found online, which is exactly what these callers use.",
+  whyFo:"Because details of where the family are can be found online, which is exactly what these callers use.",
   whyFn:function(a){return a.online>0?null:"Because a visible profile makes it easier for these callers to sound convincing."},
   fh:["Stay as calm as you can and slow it down. Don't agree to pay anything, not an amount, not a deadline.",
       "Try to reach the person another way, and ask for your family code word if you have one.",
@@ -527,6 +617,7 @@ var SCEN=[
   t:"Information leaking through people close to you",
   why:"Because people outside the family know your homes, routines or children's movements.",
   whyOrg:"Because people outside the core team have access to your sites, schedules or information.",
+  whyFo:"Because people outside the family know their homes, routines or children's movements.",
   fh:["If anyone may be in danger now, call 999. Otherwise, if you suspect it, don't confront anyone yet.",
       "Note what was shared, when, and who could have known it.",
       "Talk to a specialist about how to look into it discreetly, before you change anything visible."]}
@@ -544,10 +635,18 @@ var BANDS=[
  {min:85,key:"ready",name:"Ready",text:"You're in a strong position. The work now is keeping it that way, because readiness fades quietly: plans drift, people move on and contacts change."}
 ];
 var CONTACT="https://www.sjgroupinternational.com/contact?utm_source=readiness-check&utm_medium=referral&utm_campaign=readiness-check";
-var BOOK="https://www.sjgroupinternational.com/book-online?utm_source=readiness-check&utm_medium=referral&utm_campaign=readiness-check";
+var BOOK="https://www.sjgroupinternational.com/booking-calendar/readiness-check-debrief?utm_source=readiness-check&utm_medium=referral&utm_campaign=readiness-check";
 
 var $=function(id){return document.getElementById(id)};
-var aud=null,idx=0,answers=[],advanceT=null;
+var aud=null,adv=false,idx=0,answers=[],advanceT=null;
+/* aud is "fam" (private), "fo" (family office) or "org" (organisation). adv is true when an adviser is answering for a client.
+   Family offices use their own wording where a question has it ("fo", "optsFo", "afo", "whyFo"), otherwise the organisation wording. */
+function txt(src){return aud==="fo"?(src.fo||src.org):(aud==="fam"?src.fam:src.org)}
+function whyOf(x){return aud==="fam"?x.why:((aud==="fo"&&x.whyFo)||x.whyOrg||x.why)}
+function stepOf(q){return aud==="fam"?q.af:((aud==="fo"&&q.afo)||q.ao)}
+var MODE_LABEL={fam:"private",fo:"family-office",org:"organisation"};
+var MODE_NAME={fam:"Private client or family",fo:"Family office",org:"Organisation"};
+var SHARE_URL="https://www.sjgroupinternational.com/readiness-check?utm_source=adviser&utm_medium=referral&utm_campaign=readiness-check";
 var reduced=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function show(id){
@@ -565,8 +664,20 @@ function qa(qi){return answers[NS+qi]}
 function qv(qi){var a=qa(qi),q=Q[qi];return q.scores?q.scores[a]:a}
 
 /* intro */
-Array.prototype.forEach.call(document.querySelectorAll(".choice"),function(b){
-  b.addEventListener("click",function(){aud=b.dataset.aud;idx=0;answers=new Array(ITEMS.length);show("quiz");renderQ(true)});
+Array.prototype.forEach.call(document.querySelectorAll(".choice[data-aud]"),function(b){
+  b.addEventListener("click",function(){aud=b.dataset.aud;adv=b.dataset.adv==="1";idx=0;answers=new Array(ITEMS.length);show("quiz");renderQ(true)});
+});
+function showWho(advPanel){$("whoMain").hidden=advPanel;$("whoAdv").hidden=!advPanel;$("advBox").hidden=true}
+$("advBtn").addEventListener("click",function(){showWho(true);$("advTitle").focus({preventScroll:true})});
+$("advBack").addEventListener("click",function(){showWho(false)});
+function copyText(text,done){
+  var box=$("advBox");
+  function fallback(){box.value=text;box.hidden=false;box.focus();box.select();say("Select the text below and copy it.")}
+  try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){box.hidden=true;say(done)},fallback)}else fallback()}catch(e){fallback()}
+}
+$("advCopyLink").addEventListener("click",function(){copyText(SHARE_URL,"Link copied.")});
+$("advCopyMsg").addEventListener("click",function(){
+  copyText("I thought this might be useful. It's a short, private check from SJ Group International on how exposed you are to things like kidnap, extortion and fraud, and how ready you'd be if something happened. It takes about five minutes, and your answers stay on your own device, so nobody sees them unless you choose to share them.\n\n"+SHARE_URL,"Message copied. Paste it into an email or message.");
 });
 
 /* progress */
@@ -584,14 +695,15 @@ function renderProgress(){
 }
 
 /* question */
-function optsFor(it){if(it.kind==="sit")return it.sit.opts;var q=it.q;return (aud==="fam"?q.optsFam:q.optsOrg)||q.opts}
-function optsQ(q){return (aud==="fam"?q.optsFam:q.optsOrg)||q.opts}
+function optsQ(q){return aud==="fam"?(q.optsFam||q.opts):((aud==="fo"&&q.optsFo)||q.optsOrg||q.opts)}
+function optsFor(it){return it.kind==="sit"?it.sit.opts:optsQ(it.q)}
 function renderQ(focus){
   clearTimeout(advanceT);
   var it=ITEMS[idx],src=it.kind==="sit"?it.sit:it.q,opts=optsFor(it);
   $("qStage").textContent=STAGE_TITLES[it.s];
   $("qCount").textContent="Question "+(idx+1)+" of "+ITEMS.length;
-  $("qText").textContent=aud==="fam"?src.fam:src.org;
+  $("qText").textContent=txt(src);
+  $("qClient").hidden=!adv;
   var box=$("answers");box.innerHTML="";
   opts.forEach(function(a,v){
     var b=document.createElement("button");b.type="button";b.className="ans";
@@ -622,7 +734,7 @@ function next(){
 $("nextBtn").addEventListener("click",next);
 $("backBtn").addEventListener("click",function(){
   clearTimeout(advanceT);
-  if(idx===0){show("intro");return}
+  if(idx===0){showWho(adv);show("intro");return}
   idx--;renderQ(true);
 });
 document.addEventListener("keydown",function(e){
@@ -636,10 +748,10 @@ function bandFor(score){var b=BANDS[0];BANDS.forEach(function(x){if(score>=x.min
 function expoBandFor(score){var b=EXPO_BANDS[0];EXPO_BANDS.forEach(function(x){if(score>=x.min)b=x});return b}
 function sitAnswers(){var o={};SIT.forEach(function(x,i){o[x.k]=answers[i]||0});return o}
 function compute(){
-  var total=0,stage=[0,0,0],expo=0;
-  Q.forEach(function(q,qi){var a=qv(qi);total+=a;stage[q.s]+=a});
+  var total=0,stage=[0,0,0],cnt=[0,0,0],expo=0;
+  Q.forEach(function(q,qi){var a=qv(qi);total+=a;stage[q.s]+=a;cnt[q.s]++});
   SIT.forEach(function(x,i){expo+=answers[i]||0});
-  return {score:Math.round(total/(Q.length*3)*100),stages:stage.map(function(s){return Math.round(s/12*100)}),
+  return {score:Math.round(total/(Q.length*3)*100),stages:stage.map(function(s,i){return Math.round(s/(cnt[i]*3)*100)}),
     exposure:Math.round(expo/(NS*2)*100)};
 }
 function pickSteps(){
@@ -682,7 +794,7 @@ function showResults(){
   $("expoName").textContent=eb.name;
   $("expoText").textContent=eb.text;
   var why=$("expoWhy");why.innerHTML="";
-  SIT.forEach(function(x,i){if(answers[i]>=1){var li=document.createElement("li");li.textContent=(aud!=="fam"&&x.whyOrg)?x.whyOrg:x.why;why.appendChild(li)}});
+  SIT.forEach(function(x,i){if(answers[i]>=1){var li=document.createElement("li");li.textContent=whyOf(x);why.appendChild(li)}});
   why.hidden=!why.children.length;
   var g=gapLine(r);$("gapText").textContent=g;$("gapText").hidden=!g;
   $("expo").setAttribute("aria-label","Your exposure: "+eb.name);
@@ -705,7 +817,7 @@ function showResults(){
     d.innerHTML="<b></b><span class=\"why\"></span><span class=\"fh\">In the first hour</span><ol></ol>";
     d.querySelector("b").textContent=sc.t;
     var alt=sc.whyFn&&!item.def?sc.whyFn(sitAnswers()):null;
-    d.querySelector(".why").textContent=item.def?"One of the most common situations we're asked about, whoever you are.":(alt||(org&&sc.whyOrg?sc.whyOrg:sc.why));
+    d.querySelector(".why").textContent=item.def?"One of the most common situations we're asked about, whoever you are.":(alt||whyOf(sc));
     var ol2=d.querySelector("ol");
     ((org&&sc.fhOrg)||sc.fh).forEach(function(s){var li=document.createElement("li");li.textContent=s;ol2.appendChild(li)});
     sl.appendChild(d);
@@ -724,13 +836,21 @@ function showResults(){
       var q=Q[i],li=document.createElement("li");
       li.innerHTML="<b></b><span></span><em></em>";
       li.querySelector("b").textContent=q.t;
-      li.querySelector("span").textContent=aud==="fam"?q.af:q.ao;
+      li.querySelector("span").textContent=stepOf(q);
       li.querySelector("em").textContent=STAGES[q.s+1]+" · you answered “"+optsQ(q)[qa(i)]+"”";
       ol.appendChild(li);
     });
   }
-  $("enquire").href=CONTACT+"&utm_content="+band.key+"-"+(aud==="fam"?"private":"organisation");
-  $("book").href=BOOK+"&utm_content="+band.key+"-"+(aud==="fam"?"private":"organisation");
+  var mode=(adv?"adviser-":"")+MODE_LABEL[aud];
+  $("enquire").href=CONTACT+"&utm_content="+band.key+"-"+mode;
+  $("book").href=BOOK+"&utm_content="+band.key+"-"+mode;
+  $("rClient").hidden=!adv;
+  $("readEyebrow").textContent=adv?"Your client's readiness":"Your readiness";
+  $("expoEyebrow").textContent=adv?"Your client's exposure":"Your exposure";
+  $("printSub").textContent=MODE_NAME[aud]+(adv?", answered by an adviser on a client's behalf":"")+" · "+new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
+  $("ctaTitle").textContent=adv?"Talk to us about your client, in confidence":"Talk your results through, in confidence";
+  $("ctaText").textContent=adv?"Book a Readiness Check debrief: a private conversation about your client's results and what might help, with no obligation.":"Book a Readiness Check debrief: a private conversation about your results and what to do first, with no obligation.";
+  $("keepText").textContent=adv?"Save a copy to talk through with your client. The PDF is marked confidential.":(aud==="fo"?"Save a copy for the principals, the office or your advisers. The PDF is marked confidential.":(aud==="org"?"Save a copy for your board, leadership team or advisers. The PDF is marked confidential.":"Save a copy for yourself, or to share with your family office or advisers. The PDF is marked confidential."));
   $("copyBox").hidden=true;
   resetOptin();
   $("optin").querySelector("h4").textContent=steps.length?"Want the Readiness Briefs for your focus areas?":"Want our Readiness Briefs?";
@@ -746,12 +866,12 @@ function showResults(){
   $("bandName").focus({preventScroll:true});
 }
 function summary(){
-  var r=last.r,lines=["The Readiness Check, SJ Group International","","Readiness: "+r.score+" out of 100 ("+last.band.name+")",
+  var r=last.r,lines=["The Readiness Check, SJ Group International",MODE_NAME[aud]+(adv?", answered by an adviser on a client's behalf":""),"","Readiness: "+r.score+" out of 100 ("+last.band.name+")",
     "Assess "+r.stages[0]+"%, Prepare "+r.stages[1]+"%, Respond "+r.stages[2]+"%","Exposure: "+last.eb.name,""];
   lines.push("Situations worth planning for:");
   last.scen.forEach(function(item){var sc=item.sc;lines.push("- "+sc.t);(((aud!=="fam")&&sc.fhOrg)||sc.fh).forEach(function(s,k){lines.push("  "+(k+1)+". "+s)})});
   lines.push("");
-  if(last.steps.length){lines.push("Places to start:");last.steps.forEach(function(i,k){lines.push((k+1)+". "+Q[i].t+": "+(aud==="fam"?Q[i].af:Q[i].ao))})}
+  if(last.steps.length){lines.push("Places to start:");last.steps.forEach(function(i,k){lines.push((k+1)+". "+Q[i].t+": "+stepOf(Q[i]))})}
   lines.push("","sjgroupinternational.com");
   return lines.join("\n");
 }
@@ -760,7 +880,7 @@ $("copyBtn").addEventListener("click",function(){
   function fallback(){box.value=text;box.hidden=false;box.focus();box.select();say("Select the text below and copy it.")}
   try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){say("Results copied. Paste them anywhere to keep them.")},fallback)}else fallback()}catch(e){fallback()}
 });
-$("restartBtn").addEventListener("click",function(){aud=null;idx=0;answers=[];last=null;$("ringFill").setAttribute("stroke-dashoffset","389.6");resetOptin();show("intro")});
+$("restartBtn").addEventListener("click",function(){aud=null;adv=false;showWho(false);idx=0;answers=[];last=null;$("ringFill").setAttribute("stroke-dashoffset","389.6");resetOptin();show("intro")});
 
 /* Save as PDF: the browser's print dialog, with a print layout that shows only the results */
 $("pdfBtn").addEventListener("click",function(){
@@ -786,6 +906,7 @@ $("optin").addEventListener("submit",function(e){
     email:email,
     first_name:name?name.slice(0,80):null,
     audience:aud==="fam"?"private":"organisation",
+    source:"readiness-check:"+(adv?"adviser-":"")+MODE_LABEL[aud],
     score:last.r.score,
     band:last.band.name+" · "+last.eb.name,
     focus_areas:last.steps.map(function(i){return Q[i].t}),
