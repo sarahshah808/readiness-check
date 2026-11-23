@@ -378,8 +378,8 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 
       <div class="cta">
         <h3 id="ctaTitle">Talk your results through, in confidence</h3>
-        <p id="ctaText">Book a Readiness Check debrief: a private conversation about your results and what to do first, with no obligation.</p>
-        <p class="who-by">SJ Group International was founded by Nick Shah OBE, formerly of the National Crime Agency. Our 24/7 line is <a href="tel:+442080502939">+44 (0)20 8050 2939</a>.</p>
+        <p id="ctaText">Book a Readiness Check debrief: a private 20 minute conversation with Nick Shah OBE about your results and what to do first, with no obligation.</p>
+        <p class="who-by">Nick founded SJ Group International after a career that included the National Crime Agency. Our 24/7 line is <a href="tel:+442080502939">+44 (0)20 8050 2939</a>.</p>
         <div class="cta-row">
           <a class="btn" id="book" href="https://www.sjgroupinternational.com/booking-calendar/readiness-check-debrief" target="_blank" rel="noopener">Book a Readiness Check debrief</a>
           <a class="btn ghost" id="enquire" href="https://www.sjgroupinternational.com/contact" target="_blank" rel="noopener">Make a discreet enquiry</a>
@@ -849,7 +849,7 @@ function showResults(){
   $("expoEyebrow").textContent=adv?"Your client's exposure":"Your exposure";
   $("printSub").textContent=MODE_NAME[aud]+(adv?", answered by an adviser on a client's behalf":"")+" · "+new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
   $("ctaTitle").textContent=adv?"Talk to us about your client, in confidence":"Talk your results through, in confidence";
-  $("ctaText").textContent=adv?"Book a Readiness Check debrief: a private conversation about your client's results and what might help, with no obligation.":"Book a Readiness Check debrief: a private conversation about your results and what to do first, with no obligation.";
+  $("ctaText").textContent=adv?"Book a Readiness Check debrief: a private 20 minute conversation with Nick Shah OBE about your client's results and what might help, with no obligation.":"Book a Readiness Check debrief: a private 20 minute conversation with Nick Shah OBE about your results and what to do first, with no obligation.";
   $("keepText").textContent=adv?"Save a copy to talk through with your client. The PDF is marked confidential.":(aud==="fo"?"Save a copy for the principals, the office or your advisers. The PDF is marked confidential.":(aud==="org"?"Save a copy for your board, leadership team or advisers. The PDF is marked confidential.":"Save a copy for yourself, or to share with your family office or advisers. The PDF is marked confidential."));
   $("copyBox").hidden=true;
   resetOptin();
