@@ -544,11 +544,11 @@ var Q=[
   optsFam:["Pay it, so the photos are never sent","Save the evidence, don't reply or pay, then report it","Block them and report the account to the platform","Reply and ask them to delete everything"],
   scores:[0,3,1,1],
   scoresFam:[0,3,1,0],
-  know:"Don't pay and don't reply. Keep the evidence first: messages, usernames, numbers and payment details. Only block them once it's saved. If any images are of someone under 18, don't screenshot, save or forward them, leave them on the device and report it. Under-18s can also use Report Remove, from Childline and the Internet Watch Foundation, to get images taken down. Report to the police on 101, or 999 if anyone is in danger, and get advice before you say anything to anyone.",
-  knowOrg:"Don't pay, delete or reply in a hurry. Keep everything, bring in whoever leads incidents, tell your insurer early, and get specialist advice. Whether and how to engage should be a decision you make deliberately, not a reflex. Payment can carry legal risks too, for example if a sanctioned or terrorist group is behind it.",
+  know:"Don't pay and don't reply. Keep the evidence first: messages, usernames, numbers and payment details. Only block them once it's saved. If any images are of someone under 18, never screenshot, save, copy or forward them, even as evidence: leave them on the device and report it. Under-18s can also use Report Remove, from Childline and the Internet Watch Foundation, to get images taken down. Report to the police on 101, or 999 if anyone is in danger, and get advice before you say anything to anyone.",
+  knowOrg:"Don't pay, delete or reply in a hurry. Keep everything, bring in whoever leads incidents, tell your insurer early, and get specialist advice. Whether and how to engage should be a decision you make deliberately, not a reflex. Report it to the police, and if personal data is involved, check whether you need to tell the ICO within 72 hours. Payment can carry legal risks too, for example if a sanctioned or terrorist group is behind it.",
   t:"Plan for a demand",
   ao:"Make sure anyone who receives a threat knows: don't reply, pay or delete anything, keep the evidence and tell one named person straight away.",
-  af:"Make sure everyone, including teenagers, knows: don't reply, pay or delete anything, keep the evidence and tell you straight away. Nobody will be in trouble. If images of anyone under 18 are involved, don't screenshot, save or forward them, report it instead."},
+  af:"Make sure everyone, including teenagers, knows: don't reply, pay or delete anything, keep the evidence and tell you straight away. Nobody will be in trouble. If images of anyone under 18 are involved, never screenshot, save, copy or forward them, even as evidence: report it instead."},
  {s:2, quiz:true,
   org:"An urgent email from your chief executive asks finance to pay a new supplier today, and to keep it quiet until a deal is announced. What's the first move?",
   fam:"An email from your solicitor says their bank details have changed, and asks you to send the deposit for your new home today. It looks just like their usual emails. What do you do?",
@@ -621,7 +621,7 @@ var SCEN=[
   t:"A threat, blackmail or extortion demand",
   why:"Because a visible profile or visible wealth makes you a more attractive target.",
   whyFn:function(a){return a.profile>0?null:"Because personal details and whereabouts shared online give people something to threaten you with."},
-  fh:["Don't pay, and don't reply. Keep the evidence: don't delete messages, usernames, numbers or bank details. If any images are of someone under 18, don't screenshot, save or forward them, leave them where they are and report it.",
+  fh:["Don't pay, and don't reply. Keep the evidence: don't delete messages, usernames, numbers or bank details. If any images are of someone under 18, never screenshot, save, copy or forward them, even as evidence: leave them where they are and report it.",
       "Report it to the police on 101, or 999 if anyone is in immediate danger.",
       "Get advice before you say anything publicly, to staff, or to the person making the threat."],
   fhOrg:["Keep everything, and don't reply, pay or delete anything in a hurry. If anyone is in immediate danger, call 999.",
@@ -827,7 +827,7 @@ function showResults(){
     var d=document.createElement("div");d.className="kn";
     d.innerHTML="<span class=\"fh\">Worth knowing</span><b></b><span class=\"you\"></span><p></p>";
     d.querySelector("b").textContent=titleOf(q);
-    d.querySelector(".you").textContent=(adv?"Answered: “":"You chose: “")+optsQ(q)[qa(qi)]+"”. The safer first move is: “"+optsQ(q)[scoresOf(q).indexOf(3)]+"”.";
+    d.querySelector(".you").textContent=(adv?"Answered: “":"You chose: “")+optsQ(q)[qa(qi)]+"”. The first move we'd recommend is: “"+optsQ(q)[scoresOf(q).indexOf(3)]+"”.";
     d.querySelector("p").textContent=(aud!=="fam"&&q.knowOrg)?q.knowOrg:q.know;
     kl.appendChild(d);
   });
@@ -890,6 +890,8 @@ function showResults(){
 function summary(){
   var r=last.r,lines=["The Readiness Check, SJ Group International",MODE_NAME[aud]+(adv?", answered by an adviser on a client's behalf":""),"","Readiness: "+r.score+" out of 100 ("+last.band.name+")",
     "Assess "+r.stages[0]+"%, Prepare "+r.stages[1]+"%, Respond "+r.stages[2]+"%","Exposure: "+last.eb.name,""];
+  var kn=[];Q.forEach(function(q,qi){if(q.quiz&&qv(qi)!==3)kn.push("- "+titleOf(q)+": "+((aud!=="fam"&&q.knowOrg)?q.knowOrg:q.know))});
+  if(kn.length){lines.push("Worth knowing:");lines=lines.concat(kn);lines.push("")}
   lines.push("Situations worth planning for:");
   last.scen.forEach(function(item){var sc=item.sc;lines.push("- "+sc.t);(((aud!=="fam")&&sc.fhOrg)||sc.fh).forEach(function(s,k){lines.push("  "+(k+1)+". "+s)})});
   lines.push("");
