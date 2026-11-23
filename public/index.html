@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The Readiness Check</title>
 <meta name="robots" content="noindex">
-<meta name="description" content="Twelve questions, about three minutes. A clear picture of how ready you are for a serious incident, and where to start. From SJ Group International.">
+<meta name="description" content="Seventeen questions, about four minutes. How exposed you are, how ready you are for a serious incident, and where to start. From SJ Group International.">
 <script>
 /* Embedded mode: when this page is shown inside another site (e.g. the Wix page at sjgroupinternational.com/readiness-check),
    or opened with ?embed=1, hide our own brand bar, title, intro and footer, because the host page already has them. */
@@ -55,7 +55,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 .privacy svg{width:16px;height:16px;flex:none;margin-top:2px;color:var(--navy)}
 
 /* progress */
-.progress{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:26px}
+.progress{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:26px}
 .stage{display:grid;gap:6px}
 .stage .lab{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 .stage.on .lab{color:var(--navy);font-weight:700}
@@ -128,6 +128,27 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 
+/* exposure + scenarios (v2) */
+.expo{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:10px}
+.expo-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.expo .eyebrow{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);font-weight:700}
+.expo-name{font-family:var(--f-display);font-size:1.4rem;color:var(--navy)}
+.expo-track{height:10px;border-radius:6px;background:var(--line);overflow:hidden}
+.expo-fill{display:block;height:100%;width:0;background:var(--navy);border-radius:6px;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.expo-text{margin:0;font-size:.88rem}
+.expo-why{margin:0;padding-left:18px;font-size:.84rem;color:var(--muted);display:grid;gap:4px}
+.gap{margin:6px 0 0;padding:12px 14px;border-left:3px solid var(--bronze);background:var(--bronze-pale);font-size:.88rem;color:var(--ink);border-radius:0 8px 8px 0}
+.scen{margin-top:34px}
+.scen h3{font-size:1.35rem}
+.scen-note{margin:6px 0 0;font-size:.82rem;color:var(--muted)}
+.scen-list{display:grid;gap:12px;margin-top:14px}
+.sc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.sc b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.1rem;color:var(--navy)}
+.sc .why{display:block;font-size:.8rem;color:var(--muted);margin-top:4px}
+.sc .fh{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze);margin-top:12px;font-weight:700}
+.sc ol{margin:6px 0 0;padding-left:20px;font-size:.88rem;display:grid;gap:4px}
+@media print{.expo,.sc{break-inside:avoid}.expo-fill{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
 /* keep your results + optional briefs sign-up */
 .keep{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:10px}
 .keep h3{font-size:1.25rem}
@@ -199,10 +220,10 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
     <!-- intro -->
     <section class="screen" id="intro">
       <h1>The Readiness Check</h1>
-      <p class="lede">If something serious happened tonight, would you know who decides, who speaks and who to call? Twelve questions to give you a clear picture, and a few practical places to start.</p>
+      <p class="lede">How exposed are you, and how ready? Five quick questions about your situation, then twelve on how you'd cope if something serious happened tonight. You'll get two scores, the situations most worth planning for, and practical places to start.</p>
       <ul class="facts">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>About three minutes</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>12 questions</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>About four minutes</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>17 questions</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Anonymous by default</li>
       </ul>
       <div class="who">
@@ -226,7 +247,7 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
         <button type="button" class="link-btn" id="backBtn">Back</button>
         <button type="button" class="link-btn" id="nextBtn" hidden>Next</button>
       </div>
-      <p class="hint">Tip: you can press 1 to 4 to answer.</p>
+      <p class="hint" id="hint">Tip: you can press 1 to 4 to answer.</p>
     </section>
 
     <!-- results -->
@@ -247,6 +268,23 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
       </div>
       <div class="bars" id="bars"></div>
       <p class="bars-note">Assess is knowing your risks and having a plan. Prepare is people, roles and practice. Respond is what happens in the first hours.</p>
+
+      <div class="expo" id="expo">
+        <div class="expo-head">
+          <span class="eyebrow">Your exposure</span>
+          <span class="expo-name" id="expoName"></span>
+        </div>
+        <div class="expo-track" aria-hidden="true"><span class="expo-fill" id="expoFill"></span></div>
+        <p class="expo-text" id="expoText"></p>
+        <ul class="expo-why" id="expoWhy"></ul>
+        <p class="gap" id="gapText" hidden></p>
+      </div>
+
+      <div class="scen">
+        <h3>Situations worth planning for</h3>
+        <p class="scen-note">Based on your answers. Each comes with what to do in the first hour, so everyone knows before it's needed.</p>
+        <div class="scen-list" id="scenList"></div>
+      </div>
 
       <div class="steps">
         <h3 id="stepsTitle">Three places to start</h3>
@@ -304,19 +342,49 @@ h1{font-size:clamp(2rem,6.5vw,2.9rem);line-height:1.1;margin-top:34px}
 <script>
 (function(){
 "use strict";
-var STAGES=["Assess","Prepare","Respond"];
+var STAGES=["Situation","Assess","Prepare","Respond"];
+var STAGE_TITLES=["Your situation","Assess","Prepare","Respond"];
 var ANSWERS=["Not yet","Partly","Mostly","Yes, and checked recently"];
-/* each question: stage, organisation wording, family wording, next-step title and action for each */
+/* v2: five situation questions first. They don't score readiness. They give the exposure score and choose the situations shown in the results.
+   Each option scores 0, 1 or 2 towards exposure. "why" is the line shown under "Your exposure" when someone picks a higher option. */
+var SIT=[
+ {k:"travel",
+  org:"Do any of your people travel or work in places where kidnap, detention or unrest is a known risk?",
+  fam:"Does anyone in the family travel, study or work in places where kidnap, detention or unrest is a known risk?",
+  opts:["No","Occasionally","Regularly"],
+  why:"Travel to places where kidnap, detention or unrest is a known risk"},
+ {k:"profile",
+  org:"How visible are your senior people, or the wealth around the business, in the press, online or in your sector?",
+  fam:"How visible are you, your wealth or your homes, in the press, online or in your community?",
+  opts:["Not very","Somewhat","Very"],
+  why:"A visible profile or visible wealth"},
+ {k:"crypto",
+  org:"Do the business or any of your senior people hold significant cryptocurrency or other digital assets?",
+  fam:"Does anyone in the family hold significant cryptocurrency or other digital assets, or talk about doing so?",
+  opts:["No","Not sure","Yes"],
+  why:"Digital assets, which criminals now target in person"},
+ {k:"people",
+  org:"Do people outside your core team, such as contractors, agency staff or suppliers, have access to your sites, schedules or sensitive information?",
+  fam:"Do household staff, drivers, nannies or contractors know your homes, routines or children's movements?",
+  opts:["No","A few","Many"],
+  why:"Several people outside the family or core team who know routines and access"},
+ {k:"online",
+  org:"Do your senior people or their families post publicly about travel, homes or where they'll be?",
+  fam:"Do family members, especially children, post about where they are, holidays or homes, while it's happening?",
+  opts:["Rarely","Sometimes","Often"],
+  why:"Whereabouts and routines shared online, often in real time"}
+];
+/* twelve readiness questions: stage (0 Assess, 1 Prepare, 2 Respond), organisation wording, family wording, next-step title and action for each */
 var Q=[
  {s:0,
-  org:"Have you identified the few events that would cause your organisation the most serious harm?",
+  org:"Have you identified the few events that would cause your organisation the most serious harm, and who they'd affect?",
   fam:"Have you thought through the few situations that would most seriously affect you or your family, such as a threat, an incident abroad or a privacy breach?",
   t:"Name your biggest risks",
   ao:"Spend twenty minutes listing the three events that would hurt most, and who would be affected by each.",
   af:"Spend twenty minutes listing the three situations that would affect you or your family most, and who would need to be involved."},
  {s:0,
-  org:"Do you know what information about your senior people and operations can be found online?",
-  fam:"Do you know what information about you, your family and your homes can be found online?",
+  org:"Has anyone searched for your senior people the way a criminal would, in the last year, and removed what they could?",
+  fam:"Has anyone searched for you and your family the way a criminal would, in the last year, and removed what they could?",
   t:"See what's out there",
   ao:"Search for your senior people the way an outsider would, and note anything that reveals routines, locations or family details.",
   af:"Search for yourself and your family the way a stranger would, and note anything that reveals routines, addresses or children's details."},
@@ -351,35 +419,74 @@ var Q=[
   ao:"Agree one simple way to see who is travelling, where they're staying and how to reach them.",
   af:"Agree a simple habit for sharing travel plans and checking in when family members are away."},
  {s:1,
-  org:"Is there a plan to support the people involved, during and after a serious incident?",
-  fam:"Would you know where to turn for practical and emotional support for anyone affected?",
-  t:"Plan for welfare",
-  ao:"Decide who would coordinate support for the people affected, and note what practical and emotional help you could offer.",
-  af:"Note who you'd turn to for practical and emotional support, so nobody is searching for help when it matters."},
+  org:"Do staff, contractors and suppliers know what they shouldn't share about your people, sites and schedules, and who to tell if someone asks?",
+  fam:"Do household staff, drivers and others close to you know what they shouldn't share about your homes, routines and travel, and who to tell if someone asks?",
+  t:"Brief the people around you",
+  ao:"Give staff and key suppliers a short, plain brief on what not to share and who to tell if someone starts asking questions.",
+  af:"Have a short conversation with staff and others close to you about what not to share, and who to tell if a stranger starts asking questions."},
  {s:2,
-  org:"Would an urgent concern reach a decision-maker quickly at 2am or on a bank holiday?",
-  fam:"Would household staff or family know who to call, day or night, if something felt wrong?",
+  org:"If someone rang claiming to be holding one of your people and demanding money, would whoever took the call know not to agree to anything, and who to call first?",
+  fam:"If someone rang claiming to be holding a member of your family and demanding money, would everyone at home know not to agree to anything, and who to call first?",
+  t:"Plan for the call",
+  ao:"Agree what anyone taking a threatening call should do: stay calm, agree to nothing, try to reach the person another way, call 999 if in doubt, then call your specialist.",
+  af:"Agree a family code word that's never written down or posted, and make sure everyone knows: agree to nothing, try to reach the person another way, call 999 if in doubt."},
+ {s:2,
+  org:"If a threatening message or demand arrived, such as blackmail, a leak threat or a ransom email, would the person who received it know not to reply and who to tell?",
+  fam:"If a threatening message or demand arrived, such as blackmail, a threat to share images or a ransom email, would whoever received it know not to reply, pay or delete anything?",
+  t:"Plan for a demand",
+  ao:"Make sure anyone who receives a threat knows: don't reply, pay or delete anything, keep the evidence and tell one named person straight away.",
+  af:"Make sure everyone, including teenagers, knows: don't reply, pay or delete anything, keep the evidence and tell you straight away. Nobody will be in trouble."},
+ {s:2,
+  org:"Would an urgent concern reach a decision-maker quickly at 2am or on a bank holiday, with your insurer, legal and specialist contacts to hand?",
+  fam:"Would household staff or family know who to call, day or night, with your insurer, lawyers and other advisers' contacts kept together?",
   t:"Check the 2am route",
-  ao:"Walk through how an urgent issue would reach a decision-maker outside working hours, and fix any step that relies on luck.",
-  af:"Make sure household staff and family have one number to call, day or night, and know when to use it."},
+  ao:"Walk through how an urgent issue would reach a decision-maker outside working hours, and keep insurer, broker, legal and specialist contacts in one place with policy numbers.",
+  af:"Make sure household staff and family have one number to call, day or night, and keep your insurer, lawyers and advisers' contacts together with policy numbers."},
  {s:2,
-  org:"Is it agreed who speaks for the organisation, and who approves what's said, if the media take an interest?",
-  fam:"If the press or social media took an interest, would you know who speaks for you?",
+  org:"Is it agreed who speaks for the organisation, and who approves what's said, if the media or social media take an interest?",
+  fam:"If the press or social media took an interest, would you know who speaks for you, and would family and staff know to say nothing?",
   t:"Agree who speaks",
   ao:"Agree who speaks for the organisation and who signs off statements, with a stand-in for each.",
-  af:"Decide who would speak for you, and agree with family and staff that nobody comments publicly until they've checked with that person."},
- {s:2,
-  org:"Are your insurer, legal and specialist response contacts to hand, with any notification requirements noted?",
-  fam:"Are the contacts for your insurer, lawyers and other advisers kept together and easy to reach in an emergency?",
-  t:"Keep key contacts together",
-  ao:"Put your insurer, broker, legal and specialist contacts in one place, with policy numbers and any notification deadlines.",
-  af:"Keep your insurer, lawyers and other advisers' contacts together, with policy numbers, somewhere you can reach quickly."},
- {s:2,
-  org:"If several advisers became involved at once, is it clear who would coordinate them?",
-  fam:"If several advisers became involved at once, would someone coordinate them so you didn't have to?",
-  t:"Decide who coordinates",
-  ao:"Decide who would coordinate external advisers, so their advice doesn't overlap, conflict or arrive too late.",
-  af:"Think about who would coordinate your advisers, so you aren't managing several people at the hardest moment."}
+  af:"Decide who would speak for you, and agree with family and staff that nobody comments publicly until they've checked with that person."}
+];
+/* situations shown in the results: the two that score highest from the situation answers. Wording follows SJ Group's own published guidance. */
+var SCEN=[
+ {k:"abroad", score:function(a){return a.travel*2},
+  t:"An incident while someone is abroad",
+  why:"Because people travel to places where kidnap, detention or unrest is a known risk.",
+  fh:["Write down everything: times, exact words, any demands or deadlines. Don't agree to a payment, an amount or a deadline.",
+      "Tell the FCDO on +44 (0)20 7008 5000 (24 hours), and check discreetly whether any policy includes kidnap and ransom cover.",
+      "Keep it to a small group, stay off social media and away from the press, and get specialist advice before you reply."]},
+ {k:"wrench", score:function(a){return a.crypto===2?5:(a.crypto===1?2:0)},
+  t:"A forced handover of crypto, known as a wrench attack",
+  why:"Because criminals now target people they believe hold digital assets, at home or in person.",
+  fh:["Your safety, and your family's, comes first. No amount of money is worth resisting.",
+      "Once safe, call 999, then contact the exchanges or custodians involved straight away.",
+      "Be wary of anyone who gets in touch offering to recover the funds, and talk to a specialist before responding to anyone."]},
+ {k:"virtual", score:function(a){return a.online*2+a.profile},
+  t:"A fake kidnap call, or virtual kidnapping",
+  why:"Because details of where family members are can be found online, which is exactly what these callers use.",
+  fh:["Stay as calm as you can and slow it down. Don't agree to pay anything, not an amount, not a deadline.",
+      "Try to reach the person another way, and ask for your family code word if you have one.",
+      "If you believe it may be real, or you're not sure, call 999, then call specialist help."]},
+ {k:"extortion", score:function(a){return a.profile*2+(a.online>0?1:0)},
+  t:"A threat, blackmail or extortion demand",
+  why:"Because a visible profile or visible wealth makes you a more attractive target.",
+  fh:["Don't pay, and don't reply. Keep the evidence: don't delete messages, usernames, numbers or bank details.",
+      "Report it to the police on 101, or 999 if anyone is in immediate danger.",
+      "Get advice before you say anything publicly, to staff, or to the person making the threat."]},
+ {k:"insider", score:function(a){return a.people*2},
+  t:"Information leaking through people close to you",
+  why:"Because several people outside the family or core team know your homes, routines or schedules.",
+  fh:["If you suspect it, don't confront anyone yet.",
+      "Note what was shared, when, and who could have known it.",
+      "Talk to a specialist about how to look into it discreetly, before you change anything visible."]}
+];
+var EXPO_BANDS=[
+ {min:0,name:"Lower exposure",text:"From your answers, you're less visible than many. That's a good position to keep, because exposure tends to grow quietly as families, businesses and profiles grow."},
+ {min:30,name:"Moderate exposure",text:"There are a few things that would make you easier to target. None is unusual, and most can be reduced with small, practical changes."},
+ {min:60,name:"Elevated exposure",text:"Several things make you more visible or easier to target than most. That's not a reason to worry, but it is a reason to make sure your readiness keeps up."},
+ {min:80,name:"High exposure",text:"You're more visible and more exposed than most people we speak to. That's when preparation matters most, because criminals research targets long before they act."}
 ];
 var BANDS=[
  {min:0,key:"early-stages",name:"Early stages",text:"Some important foundations aren't in place yet. That's more common than you might think, and it's also where a few small steps make the biggest difference."},
@@ -402,33 +509,40 @@ function show(id){
 }
 function say(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(say.t);say.t=setTimeout(function(){t.classList.remove("show")},2200);$("live").textContent=m}
 
+/* every screen in order: five situation questions, then the twelve readiness questions */
+var NS=SIT.length;
+var ITEMS=SIT.map(function(x){return {kind:"sit",s:0,sit:x}}).concat(Q.map(function(q,qi){return {kind:"q",s:q.s+1,q:q,qi:qi}}));
+function qa(qi){return answers[NS+qi]}
+
 /* intro */
 Array.prototype.forEach.call(document.querySelectorAll(".choice"),function(b){
-  b.addEventListener("click",function(){aud=b.dataset.aud;idx=0;answers=new Array(Q.length);show("quiz");renderQ(true)});
+  b.addEventListener("click",function(){aud=b.dataset.aud;idx=0;answers=new Array(ITEMS.length);show("quiz");renderQ(true)});
 });
 
 /* progress */
 var prog=$("progress");
 STAGES.forEach(function(name,si){
+  var n=ITEMS.filter(function(it){return it.s===si}).length;
   var d=document.createElement("div");d.className="stage";d.dataset.s=si;
-  d.innerHTML='<span class="lab">'+name+'</span><span class="ticks"><i></i><i></i><i></i><i></i></span>';
+  d.innerHTML='<span class="lab">'+name+'</span><span class="ticks" style="grid-template-columns:repeat('+n+',1fr)">'+new Array(n+1).join("<i></i>")+'</span>';
   prog.appendChild(d);
 });
 function renderProgress(){
   var ticks=prog.querySelectorAll("i");
   Array.prototype.forEach.call(ticks,function(t,i){t.className=answers[i]!==undefined&&i!==idx?"done":(i===idx?"now":"")});
-  Array.prototype.forEach.call(prog.querySelectorAll(".stage"),function(s){s.classList.toggle("on",+s.dataset.s===Q[idx].s)});
+  Array.prototype.forEach.call(prog.querySelectorAll(".stage"),function(s){s.classList.toggle("on",+s.dataset.s===ITEMS[idx].s)});
 }
 
 /* question */
+function optsFor(it){return it.kind==="sit"?it.sit.opts:ANSWERS}
 function renderQ(focus){
   clearTimeout(advanceT);
-  var q=Q[idx];
-  $("qStage").textContent=STAGES[q.s];
-  $("qCount").textContent="Question "+(idx+1)+" of "+Q.length;
-  $("qText").textContent=aud==="fam"?q.fam:q.org;
+  var it=ITEMS[idx],src=it.kind==="sit"?it.sit:it.q,opts=optsFor(it);
+  $("qStage").textContent=STAGE_TITLES[it.s];
+  $("qCount").textContent="Question "+(idx+1)+" of "+ITEMS.length;
+  $("qText").textContent=aud==="fam"?src.fam:src.org;
   var box=$("answers");box.innerHTML="";
-  ANSWERS.forEach(function(a,v){
+  opts.forEach(function(a,v){
     var b=document.createElement("button");b.type="button";b.className="ans";
     b.setAttribute("aria-pressed",String(answers[idx]===v));
     b.innerHTML='<span class="dot" aria-hidden="true"></span><span></span><span class="key" aria-hidden="true">'+(v+1)+'</span>';
@@ -436,9 +550,10 @@ function renderQ(focus){
     b.addEventListener("click",function(){choose(v)});
     box.appendChild(b);
   });
+  $("hint").textContent="Tip: you can press 1 to "+opts.length+" to answer.";
   $("backBtn").textContent=idx===0?"Change who I'm answering for":"Back";
   $("nextBtn").hidden=answers[idx]===undefined;
-  $("nextBtn").textContent=idx===Q.length-1?"See my results":"Next";
+  $("nextBtn").textContent=idx===ITEMS.length-1?"See my results":"Next";
   renderProgress();
   if(focus)$("qText").focus({preventScroll:true});
 }
@@ -451,7 +566,7 @@ function choose(v){
 }
 function next(){
   if(answers[idx]===undefined)return;
-  if(idx<Q.length-1){idx++;renderQ(true)}else{showResults()}
+  if(idx<ITEMS.length-1){idx++;renderQ(true)}else{showResults()}
 }
 $("nextBtn").addEventListener("click",next);
 $("backBtn").addEventListener("click",function(){
@@ -461,36 +576,73 @@ $("backBtn").addEventListener("click",function(){
 });
 document.addEventListener("keydown",function(e){
   if($("quiz").hidden||e.altKey||e.ctrlKey||e.metaKey)return;
-  var n=parseInt(e.key,10);
-  if(n>=1&&n<=4){e.preventDefault();choose(n-1)}
+  var n=parseInt(e.key,10),max=optsFor(ITEMS[idx]).length;
+  if(n>=1&&n<=max){e.preventDefault();choose(n-1)}
 });
 
 /* results */
 function bandFor(score){var b=BANDS[0];BANDS.forEach(function(x){if(score>=x.min)b=x});return b}
+function expoBandFor(score){var b=EXPO_BANDS[0];EXPO_BANDS.forEach(function(x){if(score>=x.min)b=x});return b}
+function sitAnswers(){var o={};SIT.forEach(function(x,i){o[x.k]=answers[i]||0});return o}
 function compute(){
-  var total=0,stage=[0,0,0];
-  answers.forEach(function(a,i){total+=a;stage[Q[i].s]+=a});
-  return {score:Math.round(total/(Q.length*3)*100),stages:stage.map(function(s){return Math.round(s/12*100)})};
+  var total=0,stage=[0,0,0],expo=0;
+  Q.forEach(function(q,qi){var a=qa(qi);total+=a;stage[q.s]+=a});
+  SIT.forEach(function(x,i){expo+=answers[i]||0});
+  return {score:Math.round(total/(Q.length*3)*100),stages:stage.map(function(s){return Math.round(s/12*100)}),
+    exposure:Math.round(expo/(NS*2)*100)};
 }
 function pickSteps(){
-  /* lowest answers first; ties keep question order */
-  var order=answers.map(function(a,i){return {a:a,i:i}}).filter(function(x){return x.a<3});
+  /* lowest answers first; ties keep question order. Returns indexes into Q */
+  var order=Q.map(function(q,qi){return {a:qa(qi),i:qi}}).filter(function(x){return x.a<3});
   order.sort(function(x,y){return x.a-y.a||x.i-y.i});
   return order.slice(0,3).map(function(x){return x.i});
 }
+function pickScenarios(){
+  var a=sitAnswers();
+  var list=SCEN.map(function(sc,i){return {sc:sc,v:sc.score(a),i:i}});
+  list.sort(function(x,y){return y.v-x.v||x.i-y.i});
+  /* if nothing stands out, show the two most common situations for private clients and organisations alike */
+  if(list[0].v===0)return [SCEN[3],SCEN[2]];
+  return list.slice(0,2).map(function(x){return x.sc});
+}
+function gapLine(r){
+  if(r.exposure>=60&&r.score<65)return "Your exposure is higher than your readiness. That's the gap criminals look for, and the one worth closing first.";
+  if(r.exposure>=60)return "You're more visible than most, and you've done a lot of the work. The job now is keeping it current as things change.";
+  if(r.score<40)return "Your exposure isn't high, but a few foundations are missing. Small steps now would make a real difference if something did happen.";
+  return "";
+}
 var last=null;
 function showResults(){
-  var r=compute(),band=bandFor(r.score),steps=pickSteps();
-  last={r:r,band:band,steps:steps};
+  var r=compute(),band=bandFor(r.score),eb=expoBandFor(r.exposure),steps=pickSteps(),scen=pickScenarios();
+  last={r:r,band:band,eb:eb,steps:steps,scen:scen};
   show("results");
   $("bandName").textContent=band.name;$("bandText").textContent=band.text;
-  $("ring").setAttribute("aria-label","Your score is "+r.score+" out of 100: "+band.name);
+  $("ring").setAttribute("aria-label","Your readiness score is "+r.score+" out of 100: "+band.name);
   var bars=$("bars");bars.innerHTML="";
-  STAGES.forEach(function(name,si){
+  STAGES.slice(1).forEach(function(name,si){
     var row=document.createElement("div");row.className="bar";
     row.innerHTML='<span class="n">'+name+'</span><span class="track"><span class="fill"></span></span><span class="v">'+r.stages[si]+'%</span>';
     row.setAttribute("aria-label",name+": "+r.stages[si]+" percent");
     bars.appendChild(row);
+  });
+  /* exposure */
+  $("expoName").textContent=eb.name;
+  $("expoText").textContent=eb.text;
+  var why=$("expoWhy");why.innerHTML="";
+  SIT.forEach(function(x,i){if(answers[i]===2||(answers[i]===1&&x.k!=="crypto")){var li=document.createElement("li");li.textContent=x.why;why.appendChild(li)}});
+  why.hidden=!why.children.length;
+  var g=gapLine(r);$("gapText").textContent=g;$("gapText").hidden=!g;
+  $("expo").setAttribute("aria-label","Your exposure: "+eb.name);
+  /* situations */
+  var sl=$("scenList");sl.innerHTML="";
+  scen.forEach(function(sc){
+    var d=document.createElement("div");d.className="sc";
+    d.innerHTML="<b></b><span class=\"why\"></span><span class=\"fh\">In the first hour</span><ol></ol>";
+    d.querySelector("b").textContent=sc.t;
+    d.querySelector(".why").textContent=sc.why;
+    var ol2=d.querySelector("ol");
+    sc.fh.forEach(function(s){var li=document.createElement("li");li.textContent=s;ol2.appendChild(li)});
+    sl.appendChild(d);
   });
   var ol=$("steps");ol.innerHTML="";
   if(steps.length===0){
@@ -507,7 +659,7 @@ function showResults(){
       li.innerHTML="<b></b><span></span><em></em>";
       li.querySelector("b").textContent=q.t;
       li.querySelector("span").textContent=aud==="fam"?q.af:q.ao;
-      li.querySelector("em").textContent=STAGES[q.s]+" · you answered “"+ANSWERS[answers[i]]+"”";
+      li.querySelector("em").textContent=STAGES[q.s+1]+" · you answered “"+ANSWERS[qa(i)]+"”";
       ol.appendChild(li);
     });
   }
@@ -516,19 +668,23 @@ function showResults(){
   $("copyBox").hidden=true;
   resetOptin();
   $("optin").querySelector("h4").textContent=steps.length?"Want the Readiness Briefs for your focus areas?":"Want our Readiness Briefs?";
-  /* animate score */
+  /* animate scores */
   var fill=$("ringFill"),C=389.6;
   requestAnimationFrame(function(){requestAnimationFrame(function(){
     fill.setAttribute("stroke-dashoffset",String(C*(1-r.score/100)));
     Array.prototype.forEach.call(bars.querySelectorAll(".fill"),function(f,si){f.style.width=r.stages[si]+"%"});
+    $("expoFill").style.width=Math.max(4,r.exposure)+"%";
   })});
   if(reduced){$("ringNum").textContent=r.score}
   else{var t0=null;(function tick(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/1100);$("ringNum").textContent=Math.round(r.score*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)})(performance.now());}
   $("bandName").focus({preventScroll:true});
 }
 function summary(){
-  var r=last.r,lines=["The Readiness Check, SJ Group International","","Score: "+r.score+" out of 100 ("+last.band.name+")",
-    "Assess "+r.stages[0]+"%, Prepare "+r.stages[1]+"%, Respond "+r.stages[2]+"%",""];
+  var r=last.r,lines=["The Readiness Check, SJ Group International","","Readiness: "+r.score+" out of 100 ("+last.band.name+")",
+    "Assess "+r.stages[0]+"%, Prepare "+r.stages[1]+"%, Respond "+r.stages[2]+"%","Exposure: "+last.eb.name,""];
+  lines.push("Situations worth planning for:");
+  last.scen.forEach(function(sc){lines.push("- "+sc.t);sc.fh.forEach(function(s,k){lines.push("  "+(k+1)+". "+s)})});
+  lines.push("");
   if(last.steps.length){lines.push("Places to start:");last.steps.forEach(function(i,k){lines.push((k+1)+". "+Q[i].t+": "+(aud==="fam"?Q[i].af:Q[i].ao))})}
   lines.push("","sjgroupinternational.com");
   return lines.join("\n");
@@ -565,7 +721,7 @@ $("optin").addEventListener("submit",function(e){
     first_name:name?name.slice(0,80):null,
     audience:aud==="fam"?"private":"organisation",
     score:last.r.score,
-    band:last.band.name,
+    band:last.band.name+" · "+last.eb.name,
     focus_areas:last.steps.map(function(i){return Q[i].t}),
     wants_updates:$("fUpdates").checked
   };
