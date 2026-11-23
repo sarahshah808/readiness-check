@@ -466,8 +466,12 @@ var SCEN=[
  {k:"virtual", score:function(a){return a.online*2+a.profile},
   t:"A fake kidnap call, or virtual kidnapping",
   why:"Because details of where family members are can be found online, which is exactly what these callers use.",
+  whyOrg:"Because details of where your people are, and who their families are, can be found online, which is exactly what these callers use.",
   fh:["Stay as calm as you can and slow it down. Don't agree to pay anything, not an amount, not a deadline.",
       "Try to reach the person another way, and ask for your family code word if you have one.",
+      "If you believe it may be real, or you're not sure, call 999, then call specialist help."],
+  fhOrg:["Stay as calm as you can and slow it down. Don't agree to pay anything, not an amount, not a deadline.",
+      "Try to reach the person another way, through colleagues, their family or their travel contacts.",
       "If you believe it may be real, or you're not sure, call 999, then call specialist help."]},
  {k:"extortion", score:function(a){return a.profile*2+(a.online>0?1:0)},
   t:"A threat, blackmail or extortion demand",
@@ -602,8 +606,8 @@ function pickScenarios(){
   var list=SCEN.map(function(sc,i){return {sc:sc,v:sc.score(a),i:i}});
   list.sort(function(x,y){return y.v-x.v||x.i-y.i});
   /* if nothing stands out, show the two most common situations for private clients and organisations alike */
-  if(list[0].v===0)return [SCEN[3],SCEN[2]];
-  return list.slice(0,2).map(function(x){return x.sc});
+  if(list[0].v===0)return [{sc:SCEN[3],def:true},{sc:SCEN[2],def:true}];
+  return list.slice(0,2).map(function(x){return {sc:x.sc,def:x.v===0}});
 }
 function gapLine(r){
   if(r.exposure>=60&&r.score<65)return "Your exposure is higher than your readiness. That's the gap criminals look for, and the one worth closing first.";
@@ -635,13 +639,14 @@ function showResults(){
   $("expo").setAttribute("aria-label","Your exposure: "+eb.name);
   /* situations */
   var sl=$("scenList");sl.innerHTML="";
-  scen.forEach(function(sc){
+  scen.forEach(function(item){
+    var sc=item.sc,org=aud!=="fam";
     var d=document.createElement("div");d.className="sc";
     d.innerHTML="<b></b><span class=\"why\"></span><span class=\"fh\">In the first hour</span><ol></ol>";
     d.querySelector("b").textContent=sc.t;
-    d.querySelector(".why").textContent=sc.why;
+    d.querySelector(".why").textContent=item.def?"One of the most common situations we're asked about, whoever you are.":(org&&sc.whyOrg?sc.whyOrg:sc.why);
     var ol2=d.querySelector("ol");
-    sc.fh.forEach(function(s){var li=document.createElement("li");li.textContent=s;ol2.appendChild(li)});
+    ((org&&sc.fhOrg)||sc.fh).forEach(function(s){var li=document.createElement("li");li.textContent=s;ol2.appendChild(li)});
     sl.appendChild(d);
   });
   var ol=$("steps");ol.innerHTML="";
@@ -683,7 +688,7 @@ function summary(){
   var r=last.r,lines=["The Readiness Check, SJ Group International","","Readiness: "+r.score+" out of 100 ("+last.band.name+")",
     "Assess "+r.stages[0]+"%, Prepare "+r.stages[1]+"%, Respond "+r.stages[2]+"%","Exposure: "+last.eb.name,""];
   lines.push("Situations worth planning for:");
-  last.scen.forEach(function(sc){lines.push("- "+sc.t);sc.fh.forEach(function(s,k){lines.push("  "+(k+1)+". "+s)})});
+  last.scen.forEach(function(item){var sc=item.sc;lines.push("- "+sc.t);(((aud!=="fam")&&sc.fhOrg)||sc.fh).forEach(function(s,k){lines.push("  "+(k+1)+". "+s)})});
   lines.push("");
   if(last.steps.length){lines.push("Places to start:");last.steps.forEach(function(i,k){lines.push((k+1)+". "+Q[i].t+": "+(aud==="fam"?Q[i].af:Q[i].ao))})}
   lines.push("","sjgroupinternational.com");
